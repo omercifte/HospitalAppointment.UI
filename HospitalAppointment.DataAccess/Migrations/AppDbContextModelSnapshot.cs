@@ -37,6 +37,31 @@ namespace HospitalAppointment.DataAccess.Migrations
                     b.ToTable("DoctorsPatients");
                 });
 
+            modelBuilder.Entity("HospitalAppointment.Entities.Models.DoctorAvailability", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("DoctorId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<TimeSpan>("Time")
+                        .HasColumnType("time");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DoctorId");
+
+                    b.ToTable("DoctorAvailabilities");
+                });
+
             modelBuilder.Entity("HospitalAppointment.Entities.Models.DoctorInfo", b =>
                 {
                     b.Property<Guid>("Id")
@@ -116,6 +141,17 @@ namespace HospitalAppointment.DataAccess.Migrations
                         .HasForeignKey("PatientsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("HospitalAppointment.Entities.Models.DoctorAvailability", b =>
+                {
+                    b.HasOne("HospitalAppointment.Entities.Models.Doctors", "Doctor")
+                        .WithMany()
+                        .HasForeignKey("DoctorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Doctor");
                 });
 #pragma warning restore 612, 618
         }

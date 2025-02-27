@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace HospitalAppointment.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class FirstMig : Migration
+    public partial class fix : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -56,6 +56,27 @@ namespace HospitalAppointment.DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "DoctorAvailabilities",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    DoctorId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Time = table.Column<TimeSpan>(type: "time", nullable: false),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DoctorAvailabilities", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_DoctorAvailabilities_Doctors_DoctorId",
+                        column: x => x.DoctorId,
+                        principalTable: "Doctors",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "DoctorsPatients",
                 columns: table => new
                 {
@@ -80,6 +101,11 @@ namespace HospitalAppointment.DataAccess.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_DoctorAvailabilities_DoctorId",
+                table: "DoctorAvailabilities",
+                column: "DoctorId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_DoctorsPatients_PatientsId",
                 table: "DoctorsPatients",
                 column: "PatientsId");
@@ -88,6 +114,9 @@ namespace HospitalAppointment.DataAccess.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "DoctorAvailabilities");
+
             migrationBuilder.DropTable(
                 name: "Doctorinfo");
 

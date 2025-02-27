@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            comboBox1 = new ComboBox();
-            dateTimePicker1 = new DateTimePicker();
+            cmbDoctor = new ComboBox();
+            dtpDate = new DateTimePicker();
             label2 = new Label();
-            listBox1 = new ListBox();
-            button1 = new Button();
+            btnKaydet = new Button();
+            chkList = new CheckedListBox();
             SuspendLayout();
             // 
             // label1
@@ -45,20 +45,21 @@
             label1.TabIndex = 1;
             label1.Text = "Doktor";
             // 
-            // comboBox1
+            // cmbDoctor
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(217, 68);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(525, 45);
-            comboBox1.TabIndex = 2;
+            cmbDoctor.FormattingEnabled = true;
+            cmbDoctor.Location = new Point(217, 68);
+            cmbDoctor.Name = "cmbDoctor";
+            cmbDoctor.Size = new Size(525, 45);
+            cmbDoctor.TabIndex = 2;
             // 
-            // dateTimePicker1
+            // dtpDate
             // 
-            dateTimePicker1.Location = new Point(217, 136);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(525, 43);
-            dateTimePicker1.TabIndex = 3;
+            dtpDate.Location = new Point(217, 136);
+            dtpDate.Name = "dtpDate";
+            dtpDate.Size = new Size(525, 43);
+            dtpDate.TabIndex = 3;
+            dtpDate.ValueChanged += dtpDate_ValueChanged;
             // 
             // label2
             // 
@@ -69,39 +70,40 @@
             label2.TabIndex = 4;
             label2.Text = "Tarih";
             // 
-            // listBox1
+            // btnKaydet
             // 
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 37;
-            listBox1.Location = new Point(217, 206);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(525, 152);
-            listBox1.TabIndex = 5;
+            btnKaydet.Location = new Point(436, 400);
+            btnKaydet.Name = "btnKaydet";
+            btnKaydet.Size = new Size(186, 69);
+            btnKaydet.TabIndex = 6;
+            btnKaydet.Text = "Kaydet";
+            btnKaydet.UseVisualStyleBackColor = true;
+            btnKaydet.Click += btnKaydet_Click;
             // 
-            // button1
+            // chkList
             // 
-            button1.Location = new Point(436, 400);
-            button1.Name = "button1";
-            button1.Size = new Size(186, 69);
-            button1.TabIndex = 6;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
+            chkList.FormattingEnabled = true;
+            chkList.Location = new Point(217, 217);
+            chkList.Name = "chkList";
+            chkList.Size = new Size(525, 118);
+            chkList.TabIndex = 7;
             // 
             // DoctorInfoForm
             // 
             AutoScaleDimensions = new SizeF(15F, 37F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(968, 670);
-            Controls.Add(button1);
-            Controls.Add(listBox1);
+            Controls.Add(chkList);
+            Controls.Add(btnKaydet);
             Controls.Add(label2);
-            Controls.Add(dateTimePicker1);
-            Controls.Add(comboBox1);
+            Controls.Add(dtpDate);
+            Controls.Add(cmbDoctor);
             Controls.Add(label1);
             Font = new Font("Segoe UI", 20F);
             Margin = new Padding(6, 7, 6, 7);
             Name = "DoctorInfoForm";
             Text = "DoctorInfoForm";
+            Load += DoctorInfoForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -109,10 +111,10 @@
         #endregion
 
         private Label label1;
-        private ComboBox comboBox1;
-        private DateTimePicker dateTimePicker1;
+        private ComboBox cmbDoctor;
+        private DateTimePicker dtpDate;
         private Label label2;
-        private ListBox listBox1;
-        private Button button1;
+        private Button btnKaydet;
+        private CheckedListBox chkList;
     }
 }

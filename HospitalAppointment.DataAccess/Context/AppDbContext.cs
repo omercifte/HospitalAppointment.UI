@@ -13,6 +13,7 @@ namespace HospitalAppointment.DataAccess.Context
 
         public DbSet<Doctors> Doctors { get; set; }
         public DbSet<DoctorInfo> Doctorinfo { get; set; }
+        public DbSet<DoctorAvailability> DoctorAvailabilities { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

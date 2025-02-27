@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HospitalAppointment.DataAccess.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250227105841_FirstMig")]
-    partial class FirstMig
+    [Migration("20250227231052_fix")]
+    partial class fix
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -38,6 +38,31 @@ namespace HospitalAppointment.DataAccess.Migrations
                     b.HasIndex("PatientsId");
 
                     b.ToTable("DoctorsPatients");
+                });
+
+            modelBuilder.Entity("HospitalAppointment.Entities.Models.DoctorAvailability", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("DoctorId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<TimeSpan>("Time")
+                        .HasColumnType("time");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DoctorId");
+
+                    b.ToTable("DoctorAvailabilities");
                 });
 
             modelBuilder.Entity("HospitalAppointment.Entities.Models.DoctorInfo", b =>
@@ -119,6 +144,17 @@ namespace HospitalAppointment.DataAccess.Migrations
                         .HasForeignKey("PatientsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("HospitalAppointment.Entities.Models.DoctorAvailability", b =>
+                {
+                    b.HasOne("HospitalAppointment.Entities.Models.Doctors", "Doctor")
+                        .WithMany()
+                        .HasForeignKey("DoctorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Doctor");
                 });
 #pragma warning restore 612, 618
         }
