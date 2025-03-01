@@ -30,6 +30,10 @@
         {
             groupBox1 = new GroupBox();
             dgw_hastalar = new DataGridView();
+            Id = new DataGridViewTextBoxColumn();
+            colPatientName = new DataGridViewTextBoxColumn();
+            Surname = new DataGridViewTextBoxColumn();
+            TcNo = new DataGridViewTextBoxColumn();
             txt_hastaAra = new TextBox();
             label1 = new Label();
             lbl_bolum = new Label();
@@ -47,6 +51,7 @@
             dateTimePicker1 = new DateTimePicker();
             lbl_tarih = new Label();
             groupBox2 = new GroupBox();
+            btn_yeni = new Button();
             btn_sil = new Button();
             btn_guncelle = new Button();
             groupBox4 = new GroupBox();
@@ -63,28 +68,69 @@
             groupBox1.Controls.Add(dgw_hastalar);
             groupBox1.Controls.Add(txt_hastaAra);
             groupBox1.Controls.Add(label1);
-            groupBox1.Location = new Point(12, 12);
+            groupBox1.Location = new Point(12, 29);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(317, 514);
+            groupBox1.Size = new Size(317, 497);
             groupBox1.TabIndex = 30;
             groupBox1.TabStop = false;
             groupBox1.Text = "Kayıtlı Hastalar";
             // 
             // dgw_hastalar
             // 
+            dgw_hastalar.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgw_hastalar.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgw_hastalar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgw_hastalar.Columns.AddRange(new DataGridViewColumn[] { Id, colPatientName, Surname, TcNo });
             dgw_hastalar.Location = new Point(6, 85);
+            dgw_hastalar.MultiSelect = false;
             dgw_hastalar.Name = "dgw_hastalar";
             dgw_hastalar.RowHeadersWidth = 51;
+            dgw_hastalar.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgw_hastalar.Size = new Size(291, 407);
             dgw_hastalar.TabIndex = 32;
+            dgw_hastalar.CellContentDoubleClick += dgw_hastalar_CellContentDoubleClick;
+            dgw_hastalar.SelectionChanged += dgw_hastalar_SelectionChanged;
+            // 
+            // Id
+            // 
+            Id.DataPropertyName = "Id";
+            Id.HeaderText = "Id";
+            Id.MinimumWidth = 6;
+            Id.Name = "Id";
+            Id.Visible = false;
+            Id.Width = 51;
+            // 
+            // colPatientName
+            // 
+            colPatientName.DataPropertyName = "Name";
+            colPatientName.HeaderText = "Name";
+            colPatientName.MinimumWidth = 6;
+            colPatientName.Name = "colPatientName";
+            colPatientName.Width = 78;
+            // 
+            // Surname
+            // 
+            Surname.DataPropertyName = "Surname";
+            Surname.HeaderText = "Surname";
+            Surname.MinimumWidth = 6;
+            Surname.Name = "Surname";
+            Surname.Width = 96;
+            // 
+            // TcNo
+            // 
+            TcNo.DataPropertyName = "TcNo";
+            TcNo.HeaderText = "TcNo";
+            TcNo.MinimumWidth = 6;
+            TcNo.Name = "TcNo";
+            TcNo.Width = 72;
             // 
             // txt_hastaAra
             // 
-            txt_hastaAra.Location = new Point(86, 40);
+            txt_hastaAra.Location = new Point(100, 40);
             txt_hastaAra.Name = "txt_hastaAra";
             txt_hastaAra.Size = new Size(211, 27);
             txt_hastaAra.TabIndex = 31;
+            txt_hastaAra.TextChanged += txt_hastaAra_TextChanged;
             // 
             // label1
             // 
@@ -224,32 +270,45 @@
             // groupBox2
             // 
             groupBox2.BackColor = SystemColors.ButtonShadow;
+            groupBox2.Controls.Add(btn_yeni);
             groupBox2.Controls.Add(btn_sil);
             groupBox2.Controls.Add(btn_guncelle);
-            groupBox2.Location = new Point(335, 59);
+            groupBox2.Location = new Point(335, 29);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(125, 461);
+            groupBox2.Size = new Size(125, 497);
             groupBox2.TabIndex = 31;
             groupBox2.TabStop = false;
             groupBox2.Text = "Seçenekler";
             // 
+            // btn_yeni
+            // 
+            btn_yeni.Location = new Point(15, 48);
+            btn_yeni.Name = "btn_yeni";
+            btn_yeni.Size = new Size(94, 46);
+            btn_yeni.TabIndex = 3;
+            btn_yeni.Text = "Yeni";
+            btn_yeni.UseVisualStyleBackColor = true;
+            btn_yeni.Click += btn_yeni_Click;
+            // 
             // btn_sil
             // 
-            btn_sil.Location = new Point(15, 149);
+            btn_sil.Location = new Point(15, 182);
             btn_sil.Name = "btn_sil";
-            btn_sil.Size = new Size(94, 73);
+            btn_sil.Size = new Size(94, 50);
             btn_sil.TabIndex = 1;
             btn_sil.Text = "Sil";
             btn_sil.UseVisualStyleBackColor = true;
+            btn_sil.Click += btn_sil_Click;
             // 
             // btn_guncelle
             // 
-            btn_guncelle.Location = new Point(15, 38);
+            btn_guncelle.Location = new Point(15, 112);
             btn_guncelle.Name = "btn_guncelle";
-            btn_guncelle.Size = new Size(94, 73);
+            btn_guncelle.Size = new Size(94, 46);
             btn_guncelle.TabIndex = 0;
             btn_guncelle.Text = "Güncelle";
             btn_guncelle.UseVisualStyleBackColor = true;
+            btn_guncelle.Click += btn_guncelle_Click;
             // 
             // groupBox4
             // 
@@ -280,7 +339,7 @@
             groupBox3.Controls.Add(lbl_tarih);
             groupBox3.Location = new Point(466, 29);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(782, 491);
+            groupBox3.Size = new Size(782, 497);
             groupBox3.TabIndex = 32;
             groupBox3.TabStop = false;
             groupBox3.Text = "Hasta Kaydet";
@@ -332,5 +391,10 @@
         private Label lbl_tarih;
         private GroupBox groupBox4;
         private GroupBox groupBox3;
+        private Button btn_yeni;
+        private DataGridViewTextBoxColumn Id;
+        private DataGridViewTextBoxColumn colPatientName;
+        private DataGridViewTextBoxColumn Surname;
+        private DataGridViewTextBoxColumn TcNo;
     }
 }

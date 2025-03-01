@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace HospitalAppointment.UI.Forms
 {
@@ -35,7 +36,6 @@ namespace HospitalAppointment.UI.Forms
             _aRepo = new AppointmentRepository(_dbContext);
             _aService = new AppointmentService(_aRepo);
         }
-
         private void btn_kaydet_Click(object sender, EventArgs e)
         {
             try
@@ -46,7 +46,7 @@ namespace HospitalAppointment.UI.Forms
                     return;
                 }
 
-                Patients patient = new Patients()
+                Patients? patient = new Patients()
                 {
                     Name = txt_ad.Text,
                     Surname = txt_soyad.Text,
@@ -54,6 +54,8 @@ namespace HospitalAppointment.UI.Forms
                     IsActive = true
                 };
                 _pService.Create(patient);
+
+                patient = _pService.GetAll().FirstOrDefault(p => p.TcNo == patient.TcNo);
 
                 DateTime selectedDate = dateTimePicker1.Value.Date;
                 Doctors selectedDoctor = (Doctors)cmb_doktor.SelectedItem;
@@ -76,7 +78,8 @@ namespace HospitalAppointment.UI.Forms
                                 PatientId = patient.Id,
                                 DoctorId = doktorId,
                                 AppointmentDate = selectedDate,
-                                Time = time
+                                Time = time,
+                                IsActive = true
                             };
                             _aService.Create(appointment);
 
@@ -94,6 +97,7 @@ namespace HospitalAppointment.UI.Forms
 
                 MessageBox.Show("Randevu başarıyla kaydedildi");
                 LoadAvailableTimes();
+                GetAllPatients();
 
             }
             catch (Exception ex)
@@ -107,21 +111,19 @@ namespace HospitalAppointment.UI.Forms
         {
             cmb_bolum.DataSource = Enum.GetValues(typeof(Branches));
             GetAllPatients();
+            ClearForm();
         }
+
 
         private void GetAllPatients()
         {
-            List<Patients> data;
-            if (txt_hastaAra != null && txt_hastaAra.Text.Length >= 3)
+            dgw_hastalar.DataSource = _pService.GetAll().Select(p => new
             {
-                data = _pService.GetAll().Where(x => x.TcNo.Contains(txt_hastaAra.Text)).ToList();
-            }
-            else
-            {
-                data = _pService.GetAll().ToList();
-            }
-            dgw_hastalar.DataSource = null;
-            dgw_hastalar.DataSource = data;
+                p.Id,
+                p.Name,
+                p.Surname,
+                p.TcNo,
+            }).ToList();
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
@@ -147,11 +149,11 @@ namespace HospitalAppointment.UI.Forms
                                             .Select(a => a.Time)
                                             .ToList();
 
-                if (!availableTimes.Any())
-                {
-                    MessageBox.Show("Doktor, seçilen tarihte müsait değil.");
-                    return;
-                }
+                //if (!availableTimes.Any())
+                //{
+                //    MessageBox.Show("Doktor, seçilen tarihte müsait değil.");
+                //    return;
+                //}
 
                 foreach (var time in availableTimes)
                 {
@@ -183,7 +185,91 @@ namespace HospitalAppointment.UI.Forms
 
         private void cmb_doktor_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LoadAvailableTimes();
+            if (cmb_doktor.SelectedIndex != -1)
+            {
+                LoadAvailableTimes();
+            }
+        }
+
+        private void dgw_hastalar_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgw_hastalar_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgw_hastalar.SelectedRows.Count > 0)
+            {
+                var selectedRow = dgw_hastalar.SelectedRows[0];
+
+                Guid hastaId = (Guid)selectedRow.Cells["Id"].Value;
+
+                Patients? selectedPatient = _pService.GetAll().FirstOrDefault(p => p.Id == hastaId);
+                if (selectedPatient != null)
+                {
+                    txt_ad.Text = selectedPatient.Name;
+                    txt_soyad.Text = selectedPatient.Surname;
+                    txt_tc.Text = selectedPatient.TcNo;
+                }
+                Appointment? patientAppointment = _aService.GetAll().FirstOrDefault(a => a.PatientId == hastaId && a.IsActive);
+                if (patientAppointment != null)
+                {
+                    Doctors? selectedDoctor = _dService.GetAll().FirstOrDefault(d => d.Id == patientAppointment.DoctorId);
+                    if (selectedDoctor != null)
+                    {
+                        cmb_doktor.SelectedItem = selectedDoctor;
+                        cmb_bolum.SelectedItem = selectedDoctor.Branch;
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Lütfen bir hasta seçiniz.");
+            }
+        }
+
+        private void btn_yeni_Click(object sender, EventArgs e)
+        {
+            ClearForm();
+        }
+
+        private void ClearForm()
+        {
+            txt_ad.Text = string.Empty;
+            txt_soyad.Text = string.Empty;
+            txt_tc.Text = string.Empty;
+            cmb_bolum.SelectedIndex = -1;
+            cmb_doktor.SelectedIndex = -1;
+            dateTimePicker1.Value = DateTime.Now;
+            chkList.Items.Clear();
+        }
+
+        private void btn_guncelle_Click(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void btn_sil_Click(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void txt_hastaAra_TextChanged(object sender, EventArgs e)
+        {
+            string searchQuery = txt_tc.Text.Trim();
+            if (!string.IsNullOrEmpty(searchQuery) && searchQuery.Length >= 3)
+            {
+                var data = _pService.GetAll();
+                var results = data.Where(d => d.TcNo.ToString().Contains(searchQuery)) 
+                                    .ToList();
+                dgw_hastalar.DataSource = results;
+            }
+            else
+            {
+                GetAllPatients();
+            }
         }
     }
 }
