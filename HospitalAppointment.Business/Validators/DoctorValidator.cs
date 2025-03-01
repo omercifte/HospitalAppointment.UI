@@ -13,14 +13,16 @@ namespace HospitalAppointment.Business.Validators
         public DoctorValidator()
         {
             RuleFor(doctor => doctor.Name)
-                .NotEmpty().WithMessage("Category name is required.")
-                .Length(2, 50).WithMessage("Category name must be between 2 and 50 characters.");
+                .NotEmpty().WithMessage("Doktor adı boş geçilemez.")
+                .Length(2, 50).WithMessage("Doktor adı 2 ila 50 karakter arasında olmalıdır.");
 
-            RuleFor(doctor => doctor.Surname)
-                .MaximumLength(200).WithMessage("Description cannot be longer than 200 characters.");
+            RuleFor(doctor => doctor.Name)
+             .NotEmpty().WithMessage("Doktor soyadı boş geçilemez.")
+             .Length(2, 50).WithMessage("Doktor soyadı 2 ila 50 karakter arasında olmalıdır.");
+
 
             RuleFor(doctor => doctor.Branch)
-              .NotEmpty().WithMessage("Category name is required.");
+              .NotEmpty().WithMessage("Doktor branşı boş geçilemez.");
         }
     }
 }

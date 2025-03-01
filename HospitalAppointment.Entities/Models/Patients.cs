@@ -13,6 +13,8 @@ namespace HospitalAppointment.Entities.Models
         public string? Surname { get; set; }
         public string? FullName => $"{Name} {Surname}";
         public string? TcNo { get; set; }
-        public ICollection<Doctors>? Doctors { get; set; }
+       // public ICollection<Doctors>? Doctors { get; set; }
+        public ICollection<Appointment>? Appointments { get; set; }
+
     }
 }

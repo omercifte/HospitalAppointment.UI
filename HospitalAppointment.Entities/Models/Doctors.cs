@@ -14,6 +14,7 @@ namespace HospitalAppointment.Entities.Models
         public string? Surname { get; set; }
         public string? FullName => $"{Name} {Surname}";
         public Branches Branch { get; set; }
-        public ICollection<Patients>? Patients { get; set; }
+        //public ICollection<Patients>? Patients { get; set; }
+        public ICollection<Appointment>? Appointments { get; set; }
     }
 }

@@ -22,19 +22,34 @@ namespace HospitalAppointment.DataAccess.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("DoctorsPatients", b =>
+            modelBuilder.Entity("HospitalAppointment.Entities.Models.Appointment", b =>
                 {
-                    b.Property<Guid>("DoctorsId")
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("PatientsId")
+                    b.Property<DateTime>("AppointmentDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("DoctorId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("DoctorsId", "PatientsId");
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
 
-                    b.HasIndex("PatientsId");
+                    b.Property<Guid>("PatientId")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.ToTable("DoctorsPatients");
+                    b.Property<TimeSpan>("Time")
+                        .HasColumnType("time");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DoctorId");
+
+                    b.HasIndex("PatientId");
+
+                    b.ToTable("Appointments");
                 });
 
             modelBuilder.Entity("HospitalAppointment.Entities.Models.DoctorAvailability", b =>
@@ -105,6 +120,26 @@ namespace HospitalAppointment.DataAccess.Migrations
                     b.ToTable("Doctors");
                 });
 
+            modelBuilder.Entity("HospitalAppointment.Entities.Models.Medicine", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Medicines");
+                });
+
             modelBuilder.Entity("HospitalAppointment.Entities.Models.Patients", b =>
                 {
                     b.Property<Guid>("Id")
@@ -128,19 +163,23 @@ namespace HospitalAppointment.DataAccess.Migrations
                     b.ToTable("Patients");
                 });
 
-            modelBuilder.Entity("DoctorsPatients", b =>
+            modelBuilder.Entity("HospitalAppointment.Entities.Models.Appointment", b =>
                 {
-                    b.HasOne("HospitalAppointment.Entities.Models.Doctors", null)
-                        .WithMany()
-                        .HasForeignKey("DoctorsId")
+                    b.HasOne("HospitalAppointment.Entities.Models.Doctors", "Doctor")
+                        .WithMany("Appointments")
+                        .HasForeignKey("DoctorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("HospitalAppointment.Entities.Models.Patients", null)
-                        .WithMany()
-                        .HasForeignKey("PatientsId")
+                    b.HasOne("HospitalAppointment.Entities.Models.Patients", "Patient")
+                        .WithMany("Appointments")
+                        .HasForeignKey("PatientId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Doctor");
+
+                    b.Navigation("Patient");
                 });
 
             modelBuilder.Entity("HospitalAppointment.Entities.Models.DoctorAvailability", b =>
@@ -152,6 +191,16 @@ namespace HospitalAppointment.DataAccess.Migrations
                         .IsRequired();
 
                     b.Navigation("Doctor");
+                });
+
+            modelBuilder.Entity("HospitalAppointment.Entities.Models.Doctors", b =>
+                {
+                    b.Navigation("Appointments");
+                });
+
+            modelBuilder.Entity("HospitalAppointment.Entities.Models.Patients", b =>
+                {
+                    b.Navigation("Appointments");
                 });
 #pragma warning restore 612, 618
         }

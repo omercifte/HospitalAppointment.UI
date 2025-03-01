@@ -12,7 +12,8 @@ namespace HospitalAppointment.Business.Validators
     {
         public DoctorInfoValidator()
         {
-
+            RuleFor(d => d.DoctorId)
+          .NotEqual(Guid.Empty).WithMessage("Doktor ID boş olamaz.");
         }
                
     }

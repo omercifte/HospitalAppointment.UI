@@ -43,8 +43,6 @@ namespace HospitalAppointment.UI.Forms
             LoadAvailableTimes();
         }
 
-
-
         private void LoadAvailableTimes()
         {
             if (cmbDoctor.SelectedItem == null)
@@ -111,6 +109,7 @@ namespace HospitalAppointment.UI.Forms
                         DoctorId = doktorID,
                         Date = secilenTarih,
                         Time = saatDilimi,
+                        IsActive = true
                     };
 
                     context.DoctorAvailabilities.Add(musaitlik);

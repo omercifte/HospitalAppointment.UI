@@ -1,0 +1,336 @@
+﻿namespace HospitalAppointment.UI.Forms
+{
+    partial class AddPatientForm
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            groupBox1 = new GroupBox();
+            dgw_hastalar = new DataGridView();
+            txt_hastaAra = new TextBox();
+            label1 = new Label();
+            lbl_bolum = new Label();
+            lbl_ad = new Label();
+            lbl_tc = new Label();
+            txt_tc = new TextBox();
+            lbl_soyad = new Label();
+            txt_soyad = new TextBox();
+            txt_ad = new TextBox();
+            cmb_bolum = new ComboBox();
+            chkList = new CheckedListBox();
+            lbl_doktor = new Label();
+            btn_kaydet = new Button();
+            cmb_doktor = new ComboBox();
+            dateTimePicker1 = new DateTimePicker();
+            lbl_tarih = new Label();
+            groupBox2 = new GroupBox();
+            btn_sil = new Button();
+            btn_guncelle = new Button();
+            groupBox4 = new GroupBox();
+            groupBox3 = new GroupBox();
+            groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgw_hastalar).BeginInit();
+            groupBox2.SuspendLayout();
+            groupBox4.SuspendLayout();
+            groupBox3.SuspendLayout();
+            SuspendLayout();
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(dgw_hastalar);
+            groupBox1.Controls.Add(txt_hastaAra);
+            groupBox1.Controls.Add(label1);
+            groupBox1.Location = new Point(12, 12);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(317, 514);
+            groupBox1.TabIndex = 30;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Kayıtlı Hastalar";
+            // 
+            // dgw_hastalar
+            // 
+            dgw_hastalar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgw_hastalar.Location = new Point(6, 85);
+            dgw_hastalar.Name = "dgw_hastalar";
+            dgw_hastalar.RowHeadersWidth = 51;
+            dgw_hastalar.Size = new Size(291, 407);
+            dgw_hastalar.TabIndex = 32;
+            // 
+            // txt_hastaAra
+            // 
+            txt_hastaAra.Location = new Point(86, 40);
+            txt_hastaAra.Name = "txt_hastaAra";
+            txt_hastaAra.Size = new Size(211, 27);
+            txt_hastaAra.TabIndex = 31;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(6, 47);
+            label1.Name = "label1";
+            label1.Size = new Size(67, 20);
+            label1.TabIndex = 30;
+            label1.Text = "Hasta TC";
+            // 
+            // lbl_bolum
+            // 
+            lbl_bolum.AutoSize = true;
+            lbl_bolum.Location = new Point(19, 51);
+            lbl_bolum.Name = "lbl_bolum";
+            lbl_bolum.Size = new Size(102, 20);
+            lbl_bolum.TabIndex = 39;
+            lbl_bolum.Text = "Bölüm Seçiniz";
+            // 
+            // lbl_ad
+            // 
+            lbl_ad.AutoSize = true;
+            lbl_ad.Location = new Point(15, 47);
+            lbl_ad.Name = "lbl_ad";
+            lbl_ad.Size = new Size(28, 20);
+            lbl_ad.TabIndex = 54;
+            lbl_ad.Text = "Ad";
+            // 
+            // lbl_tc
+            // 
+            lbl_tc.AutoSize = true;
+            lbl_tc.Location = new Point(11, 171);
+            lbl_tc.Name = "lbl_tc";
+            lbl_tc.Size = new Size(92, 20);
+            lbl_tc.TabIndex = 53;
+            lbl_tc.Text = "TC Numarası";
+            // 
+            // txt_tc
+            // 
+            txt_tc.Location = new Point(114, 160);
+            txt_tc.Margin = new Padding(3, 4, 3, 4);
+            txt_tc.Name = "txt_tc";
+            txt_tc.Size = new Size(204, 27);
+            txt_tc.TabIndex = 52;
+            // 
+            // lbl_soyad
+            // 
+            lbl_soyad.AutoSize = true;
+            lbl_soyad.Location = new Point(15, 108);
+            lbl_soyad.Name = "lbl_soyad";
+            lbl_soyad.Size = new Size(50, 20);
+            lbl_soyad.TabIndex = 51;
+            lbl_soyad.Text = "Soyad";
+            // 
+            // txt_soyad
+            // 
+            txt_soyad.Location = new Point(114, 104);
+            txt_soyad.Margin = new Padding(3, 4, 3, 4);
+            txt_soyad.Name = "txt_soyad";
+            txt_soyad.Size = new Size(204, 27);
+            txt_soyad.TabIndex = 50;
+            // 
+            // txt_ad
+            // 
+            txt_ad.Location = new Point(114, 44);
+            txt_ad.Margin = new Padding(3, 4, 3, 4);
+            txt_ad.Name = "txt_ad";
+            txt_ad.Size = new Size(204, 27);
+            txt_ad.TabIndex = 49;
+            // 
+            // cmb_bolum
+            // 
+            cmb_bolum.FormattingEnabled = true;
+            cmb_bolum.Location = new Point(128, 48);
+            cmb_bolum.Margin = new Padding(3, 4, 3, 4);
+            cmb_bolum.Name = "cmb_bolum";
+            cmb_bolum.Size = new Size(247, 28);
+            cmb_bolum.TabIndex = 38;
+            cmb_bolum.SelectedIndexChanged += cmb_bolum_SelectedIndexChanged;
+            // 
+            // chkList
+            // 
+            chkList.FormattingEnabled = true;
+            chkList.Location = new Point(31, 179);
+            chkList.Margin = new Padding(3, 4, 3, 4);
+            chkList.Name = "chkList";
+            chkList.Size = new Size(344, 136);
+            chkList.TabIndex = 42;
+            // 
+            // lbl_doktor
+            // 
+            lbl_doktor.AutoSize = true;
+            lbl_doktor.Location = new Point(399, 51);
+            lbl_doktor.Name = "lbl_doktor";
+            lbl_doktor.Size = new Size(105, 20);
+            lbl_doktor.TabIndex = 37;
+            lbl_doktor.Text = "Doktor Seçiniz";
+            // 
+            // btn_kaydet
+            // 
+            btn_kaydet.Location = new Point(174, 398);
+            btn_kaydet.Margin = new Padding(3, 4, 3, 4);
+            btn_kaydet.Name = "btn_kaydet";
+            btn_kaydet.Size = new Size(381, 37);
+            btn_kaydet.TabIndex = 40;
+            btn_kaydet.Text = "Kaydet";
+            btn_kaydet.UseVisualStyleBackColor = true;
+            btn_kaydet.Click += btn_kaydet_Click;
+            // 
+            // cmb_doktor
+            // 
+            cmb_doktor.FormattingEnabled = true;
+            cmb_doktor.Location = new Point(510, 48);
+            cmb_doktor.Margin = new Padding(3, 4, 3, 4);
+            cmb_doktor.Name = "cmb_doktor";
+            cmb_doktor.Size = new Size(247, 28);
+            cmb_doktor.TabIndex = 36;
+            cmb_doktor.SelectedIndexChanged += cmb_doktor_SelectedIndexChanged;
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Location = new Point(128, 116);
+            dateTimePicker1.Margin = new Padding(3, 4, 3, 4);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(247, 27);
+            dateTimePicker1.TabIndex = 32;
+            // 
+            // lbl_tarih
+            // 
+            lbl_tarih.AutoSize = true;
+            lbl_tarih.Location = new Point(19, 121);
+            lbl_tarih.Name = "lbl_tarih";
+            lbl_tarih.Size = new Size(90, 20);
+            lbl_tarih.TabIndex = 31;
+            lbl_tarih.Text = "Tarih Seçiniz";
+            // 
+            // groupBox2
+            // 
+            groupBox2.BackColor = SystemColors.ButtonShadow;
+            groupBox2.Controls.Add(btn_sil);
+            groupBox2.Controls.Add(btn_guncelle);
+            groupBox2.Location = new Point(335, 59);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(125, 461);
+            groupBox2.TabIndex = 31;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Seçenekler";
+            // 
+            // btn_sil
+            // 
+            btn_sil.Location = new Point(15, 149);
+            btn_sil.Name = "btn_sil";
+            btn_sil.Size = new Size(94, 73);
+            btn_sil.TabIndex = 1;
+            btn_sil.Text = "Sil";
+            btn_sil.UseVisualStyleBackColor = true;
+            // 
+            // btn_guncelle
+            // 
+            btn_guncelle.Location = new Point(15, 38);
+            btn_guncelle.Name = "btn_guncelle";
+            btn_guncelle.Size = new Size(94, 73);
+            btn_guncelle.TabIndex = 0;
+            btn_guncelle.Text = "Güncelle";
+            btn_guncelle.UseVisualStyleBackColor = true;
+            // 
+            // groupBox4
+            // 
+            groupBox4.Controls.Add(lbl_ad);
+            groupBox4.Controls.Add(lbl_tc);
+            groupBox4.Controls.Add(txt_tc);
+            groupBox4.Controls.Add(lbl_soyad);
+            groupBox4.Controls.Add(txt_soyad);
+            groupBox4.Controls.Add(txt_ad);
+            groupBox4.Location = new Point(452, 108);
+            groupBox4.Name = "groupBox4";
+            groupBox4.Size = new Size(324, 264);
+            groupBox4.TabIndex = 43;
+            groupBox4.TabStop = false;
+            groupBox4.Text = "Hasta Bilgileri";
+            // 
+            // groupBox3
+            // 
+            groupBox3.BackColor = SystemColors.ButtonShadow;
+            groupBox3.Controls.Add(lbl_bolum);
+            groupBox3.Controls.Add(groupBox4);
+            groupBox3.Controls.Add(cmb_bolum);
+            groupBox3.Controls.Add(chkList);
+            groupBox3.Controls.Add(lbl_doktor);
+            groupBox3.Controls.Add(btn_kaydet);
+            groupBox3.Controls.Add(cmb_doktor);
+            groupBox3.Controls.Add(dateTimePicker1);
+            groupBox3.Controls.Add(lbl_tarih);
+            groupBox3.Location = new Point(466, 29);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(782, 491);
+            groupBox3.TabIndex = 32;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Hasta Kaydet";
+            // 
+            // AddPatientForm
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ButtonShadow;
+            ClientSize = new Size(1253, 574);
+            Controls.Add(groupBox3);
+            Controls.Add(groupBox2);
+            Controls.Add(groupBox1);
+            Name = "AddPatientForm";
+            Text = "AddPatientForm";
+            Load += AddPatientForm_Load;
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgw_hastalar).EndInit();
+            groupBox2.ResumeLayout(false);
+            groupBox4.ResumeLayout(false);
+            groupBox4.PerformLayout();
+            groupBox3.ResumeLayout(false);
+            groupBox3.PerformLayout();
+            ResumeLayout(false);
+        }
+
+        #endregion
+        private GroupBox groupBox1;
+        private Label lbl_ad;
+        private Label lbl_tc;
+        private TextBox txt_tc;
+        private Label lbl_soyad;
+        private TextBox txt_soyad;
+        private TextBox txt_ad;
+        private GroupBox groupBox2;
+        private Button btn_sil;
+        private Button btn_guncelle;
+        private Label label1;
+        private TextBox txt_hastaAra;
+        private DataGridView dgw_hastalar;
+        private Label lbl_bolum;
+        private ComboBox cmb_bolum;
+        private Label lbl_doktor;
+        private ComboBox cmb_doktor;
+        private CheckedListBox chkList;
+        private Button btn_kaydet;
+        private DateTimePicker dateTimePicker1;
+        private Label lbl_tarih;
+        private GroupBox groupBox4;
+        private GroupBox groupBox3;
+    }
+}

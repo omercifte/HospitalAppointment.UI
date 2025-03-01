@@ -39,12 +39,12 @@ namespace HospitalAppointment.Business.Services
 
             if (dinfo == null)
             {
-                throw new Exception("Tedarikçi Bulunamadı.");
+                throw new Exception("Doktor Bilgisi Bulunamadı.");
             }
 
             if (dinfo.IsActive)
             {
-                throw new Exception("Aktif bir Tedarikçi silinemez.");
+                throw new Exception("Aktif bir Doktor Bilgisi silinemez.");
             }
 
             _doctorinfoRepository.Delete(id);

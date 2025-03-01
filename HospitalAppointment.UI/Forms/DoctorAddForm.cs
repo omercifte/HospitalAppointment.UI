@@ -44,8 +44,8 @@ namespace HospitalAppointment.UI.Forms
                 {
                     Name = txtDoctorName.Text,
                     Surname = txtDoctorSurname.Text,
-                    Branch = selectedBranch
-
+                    Branch = selectedBranch,
+                    IsActive = true
                 };
 
                 _doctorService.Create(d);
@@ -56,6 +56,11 @@ namespace HospitalAppointment.UI.Forms
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void cmbBranch_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

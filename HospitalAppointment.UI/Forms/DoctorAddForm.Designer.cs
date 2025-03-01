@@ -41,58 +41,58 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(61, 119);
+            label1.Location = new Point(90, 125);
             label1.Name = "label1";
-            label1.Size = new Size(50, 37);
+            label1.Size = new Size(62, 46);
             label1.TabIndex = 0;
             label1.Text = "Ad";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(61, 208);
+            label2.Location = new Point(90, 214);
             label2.Name = "label2";
-            label2.Size = new Size(90, 37);
+            label2.Size = new Size(111, 46);
             label2.TabIndex = 1;
             label2.Text = "Soyad";
             // 
             // txtDoctorName
             // 
-            txtDoctorName.Location = new Point(289, 119);
+            txtDoctorName.Location = new Point(318, 125);
             txtDoctorName.Name = "txtDoctorName";
-            txtDoctorName.Size = new Size(370, 43);
+            txtDoctorName.Size = new Size(370, 52);
             txtDoctorName.TabIndex = 2;
             // 
             // txtDoctorSurname
             // 
-            txtDoctorSurname.Location = new Point(289, 208);
+            txtDoctorSurname.Location = new Point(318, 214);
             txtDoctorSurname.Name = "txtDoctorSurname";
-            txtDoctorSurname.Size = new Size(370, 43);
+            txtDoctorSurname.Size = new Size(370, 52);
             txtDoctorSurname.TabIndex = 3;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(61, 296);
+            label3.Location = new Point(90, 302);
             label3.Name = "label3";
-            label3.Size = new Size(81, 37);
+            label3.Size = new Size(101, 46);
             label3.TabIndex = 5;
             label3.Text = "Branş";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(50, 26);
+            label4.Location = new Point(88, 57);
             label4.Name = "label4";
-            label4.Size = new Size(191, 37);
+            label4.Size = new Size(241, 46);
             label4.TabIndex = 6;
             label4.Text = "Doktor Ekleme";
             // 
             // btnKaydet
             // 
-            btnKaydet.Location = new Point(579, 426);
+            btnKaydet.Location = new Point(548, 372);
             btnKaydet.Name = "btnKaydet";
-            btnKaydet.Size = new Size(185, 86);
+            btnKaydet.Size = new Size(140, 65);
             btnKaydet.TabIndex = 7;
             btnKaydet.Text = "Kaydet";
             btnKaydet.UseVisualStyleBackColor = true;
@@ -101,16 +101,16 @@
             // cmbBranch
             // 
             cmbBranch.FormattingEnabled = true;
-            cmbBranch.Location = new Point(289, 296);
+            cmbBranch.Location = new Point(318, 302);
             cmbBranch.Name = "cmbBranch";
-            cmbBranch.Size = new Size(370, 45);
+            cmbBranch.Size = new Size(370, 53);
             cmbBranch.TabIndex = 8;
             // 
             // DoctorAddForm
             // 
-            AutoScaleDimensions = new SizeF(15F, 37F);
+            AutoScaleDimensions = new SizeF(18F, 45F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(953, 623);
+            ClientSize = new Size(814, 497);
             Controls.Add(cmbBranch);
             Controls.Add(btnKaydet);
             Controls.Add(label4);

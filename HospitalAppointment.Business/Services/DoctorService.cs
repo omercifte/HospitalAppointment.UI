@@ -38,12 +38,12 @@ namespace HospitalAppointment.Business.Services
 
             if (d == null)
             {
-                throw new Exception("Tedarikçi Bulunamadı.");
+                throw new Exception("Doktor Bulunamadı.");
             }
 
             if (d.IsActive)
             {
-                throw new Exception("Aktif bir Tedarikçi silinemez.");
+                throw new Exception("Aktif bir doktor silinemez.");
             }
 
             _doctorRepository.Delete(id);

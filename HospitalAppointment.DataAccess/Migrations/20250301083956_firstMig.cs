@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace HospitalAppointment.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class fix : Migration
+    public partial class firstMig : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -38,6 +38,20 @@ namespace HospitalAppointment.DataAccess.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Doctors", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Medicines",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Price = table.Column<double>(type: "float", nullable: false),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Medicines", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -77,43 +91,55 @@ namespace HospitalAppointment.DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "DoctorsPatients",
+                name: "Appointments",
                 columns: table => new
                 {
-                    DoctorsId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    PatientsId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    PatientId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    DoctorId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    AppointmentDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Time = table.Column<TimeSpan>(type: "time", nullable: false),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DoctorsPatients", x => new { x.DoctorsId, x.PatientsId });
+                    table.PrimaryKey("PK_Appointments", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_DoctorsPatients_Doctors_DoctorsId",
-                        column: x => x.DoctorsId,
+                        name: "FK_Appointments_Doctors_DoctorId",
+                        column: x => x.DoctorId,
                         principalTable: "Doctors",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_DoctorsPatients_Patients_PatientsId",
-                        column: x => x.PatientsId,
+                        name: "FK_Appointments_Patients_PatientId",
+                        column: x => x.PatientId,
                         principalTable: "Patients",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_DoctorAvailabilities_DoctorId",
-                table: "DoctorAvailabilities",
+                name: "IX_Appointments_DoctorId",
+                table: "Appointments",
                 column: "DoctorId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_DoctorsPatients_PatientsId",
-                table: "DoctorsPatients",
-                column: "PatientsId");
+                name: "IX_Appointments_PatientId",
+                table: "Appointments",
+                column: "PatientId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DoctorAvailabilities_DoctorId",
+                table: "DoctorAvailabilities",
+                column: "DoctorId");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Appointments");
+
             migrationBuilder.DropTable(
                 name: "DoctorAvailabilities");
 
@@ -121,13 +147,13 @@ namespace HospitalAppointment.DataAccess.Migrations
                 name: "Doctorinfo");
 
             migrationBuilder.DropTable(
-                name: "DoctorsPatients");
-
-            migrationBuilder.DropTable(
-                name: "Doctors");
+                name: "Medicines");
 
             migrationBuilder.DropTable(
                 name: "Patients");
+
+            migrationBuilder.DropTable(
+                name: "Doctors");
         }
     }
 }
