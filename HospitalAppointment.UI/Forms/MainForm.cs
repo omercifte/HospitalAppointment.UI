@@ -33,7 +33,9 @@ namespace HospitalAppointment.UI.Forms
 
         private void doktorKayıtToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            //OpenForm(new DoctorAddForm());
+            DoctorAddForm dockayitForm = new DoctorAddForm();
+            dockayitForm.MdiParent = this;
+            GetForm(dockayitForm);
         }
 
         private void randevuEkleToolStripMenuItem_Click(object sender, EventArgs e)
@@ -41,14 +43,12 @@ namespace HospitalAppointment.UI.Forms
             // OpenForm(new AddPatientForm());
         }
 
-        private void ilaçYönetimiToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // OpenForm(new MedicineForm());
-        }
 
         private void doktorBilgiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // OpenForm(new DoctorInfoForm());
+            DoctorInfoForm docinfoForm = new DoctorInfoForm();
+            docinfoForm.MdiParent = this;
+            GetForm(docinfoForm);
 
         }
 
@@ -61,5 +61,44 @@ namespace HospitalAppointment.UI.Forms
         {
 
         }
+
+        private void doktorListesiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DoctorListForm doclistForm = new DoctorListForm();
+            doclistForm.MdiParent = this;
+            GetForm(doclistForm);
+
+        }
+        private static void GetForm(Form form)
+        {
+            if (FormUtils.IsFormsOpen(form))
+            {
+                MessageBox.Show("Form zaten açık.");
+            }
+            else
+            {
+                form.Show();
+            }
+        }
+
+        private void hastaKayıtToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            AddPatientForm addpatientForm = new AddPatientForm();
+            addpatientForm.MdiParent = this;
+            GetForm(addpatientForm);
+        }
+        protected override void OnLoad(EventArgs e) // arka plan resmini buradan getirttim formdan sildim
+        {
+            base.OnLoad(e);
+
+            foreach (Control ctl in this.Controls)
+            {
+                if (ctl is MdiClient mdiClient)
+                {  
+                    mdiClient.BackgroundImage = Properties.Resources.bg;  
+                }
+            }
+        }
+
     }
 }

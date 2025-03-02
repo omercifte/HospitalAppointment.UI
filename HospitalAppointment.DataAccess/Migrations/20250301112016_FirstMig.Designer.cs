@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HospitalAppointment.DataAccess.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250301083956_firstMig")]
-    partial class firstMig
+    [Migration("20250301112016_FirstMig")]
+    partial class FirstMig
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

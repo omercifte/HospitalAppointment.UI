@@ -147,11 +147,11 @@ namespace HospitalAppointment.UI.Forms
                                             .Select(a => a.Time)
                                             .ToList();
 
-                if (!availableTimes.Any())
-                {
-                    MessageBox.Show("Doktor, seçilen tarihte müsait değil.");
-                    return;
-                }
+                //if (!availableTimes.Any())
+                //{
+                //    MessageBox.Show("Doktor, seçilen tarihte müsait değil.");
+                //    return;
+                //}
 
                 foreach (var time in availableTimes)
                 {
@@ -174,16 +174,26 @@ namespace HospitalAppointment.UI.Forms
                 cmb_doktor.DisplayMember = "FullName";
                 cmb_doktor.ValueMember = "Id";
 
-                if (!data.Any())
-                {
-                    MessageBox.Show("Seçilen branşa ait doktor bulunamadı.");
-                }
+                //if (!data.Any())
+                //{
+                //    MessageBox.Show("Seçilen branşa ait doktor bulunamadı.");
+                //}
             }
         }
 
         private void cmb_doktor_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadAvailableTimes();
+        }
+
+        private void dgw_hastalar_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void txt_hastaAra_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -16,5 +16,10 @@ namespace HospitalAppointment.Entities.Models
         public Branches Branch { get; set; }
         //public ICollection<Patients>? Patients { get; set; }
         public ICollection<Appointment>? Appointments { get; set; }
+
+        public override string ToString()
+        {
+            return $"{FullName} {Branch}";
+        }
     }
 }
