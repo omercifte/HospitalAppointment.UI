@@ -30,6 +30,10 @@
         {
             groupBox1 = new GroupBox();
             dgw_hastalar = new DataGridView();
+            Id = new DataGridViewTextBoxColumn();
+            colPatientName = new DataGridViewTextBoxColumn();
+            Surname = new DataGridViewTextBoxColumn();
+            TcNo = new DataGridViewTextBoxColumn();
             txt_hastaAra = new TextBox();
             label1 = new Label();
             lbl_bolum = new Label();
@@ -47,6 +51,7 @@
             dateTimePicker1 = new DateTimePicker();
             lbl_tarih = new Label();
             groupBox2 = new GroupBox();
+            btn_yeni = new Button();
             btn_sil = new Button();
             btn_guncelle = new Button();
             groupBox4 = new GroupBox();
@@ -74,14 +79,23 @@
             // 
             // dgw_hastalar
             // 
+            dgw_hastalar.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgw_hastalar.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgw_hastalar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgw_hastalar.Location = new Point(5, 64);
             dgw_hastalar.Margin = new Padding(3, 2, 3, 2);
+            dgw_hastalar.MultiSelect = false;
             dgw_hastalar.Name = "dgw_hastalar";
             dgw_hastalar.RowHeadersWidth = 51;
             dgw_hastalar.Size = new Size(255, 305);
             dgw_hastalar.TabIndex = 32;
             dgw_hastalar.CellContentClick += dgw_hastalar_CellContentClick;
+            // 
+            TcNo.DataPropertyName = "TcNo";
+            TcNo.HeaderText = "TcNo";
+            TcNo.MinimumWidth = 6;
+            TcNo.Name = "TcNo";
+            TcNo.Width = 72;
             // 
             // txt_hastaAra
             // 
@@ -222,6 +236,7 @@
             // groupBox2
             // 
             groupBox2.BackColor = SystemColors.ButtonShadow;
+            groupBox2.Controls.Add(btn_yeni);
             groupBox2.Controls.Add(btn_sil);
             groupBox2.Controls.Add(btn_guncelle);
             groupBox2.Location = new Point(293, 44);
@@ -233,6 +248,16 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Seçenekler";
             // 
+            // btn_yeni
+            // 
+            btn_yeni.Location = new Point(15, 48);
+            btn_yeni.Name = "btn_yeni";
+            btn_yeni.Size = new Size(94, 46);
+            btn_yeni.TabIndex = 3;
+            btn_yeni.Text = "Yeni";
+            btn_yeni.UseVisualStyleBackColor = true;
+            btn_yeni.Click += btn_yeni_Click;
+            // 
             // btn_sil
             // 
             btn_sil.Location = new Point(13, 112);
@@ -242,6 +267,7 @@
             btn_sil.TabIndex = 1;
             btn_sil.Text = "Sil";
             btn_sil.UseVisualStyleBackColor = true;
+            btn_sil.Click += btn_sil_Click;
             // 
             // btn_guncelle
             // 
@@ -252,6 +278,7 @@
             btn_guncelle.TabIndex = 0;
             btn_guncelle.Text = "Güncelle";
             btn_guncelle.UseVisualStyleBackColor = true;
+            btn_guncelle.Click += btn_guncelle_Click;
             // 
             // groupBox4
             // 
@@ -339,5 +366,10 @@
         private Label lbl_tarih;
         private GroupBox groupBox4;
         private GroupBox groupBox3;
+        private Button btn_yeni;
+        private DataGridViewTextBoxColumn Id;
+        private DataGridViewTextBoxColumn colPatientName;
+        private DataGridViewTextBoxColumn Surname;
+        private DataGridViewTextBoxColumn TcNo;
     }
 }
