@@ -276,10 +276,5 @@ namespace HospitalAppointment.UI.Forms
         {
 
         }
-
-        private void txt_hastaAra_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
