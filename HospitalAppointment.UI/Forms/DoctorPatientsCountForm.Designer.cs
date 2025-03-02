@@ -31,23 +31,26 @@
             lstCount = new ListBox();
             btnPdf = new Button();
             btnExcel = new Button();
-            label1 = new Label();
+            groupBox1 = new GroupBox();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // lstCount
             // 
+            lstCount.Font = new Font("Segoe UI", 14F);
             lstCount.FormattingEnabled = true;
-            lstCount.ItemHeight = 37;
-            lstCount.Location = new Point(232, 150);
+            lstCount.ItemHeight = 31;
+            lstCount.Location = new Point(25, 61);
             lstCount.Name = "lstCount";
-            lstCount.Size = new Size(498, 263);
+            lstCount.Size = new Size(498, 252);
             lstCount.TabIndex = 0;
             // 
             // btnPdf
             // 
-            btnPdf.Location = new Point(493, 465);
+            btnPdf.Font = new Font("Segoe UI", 14F);
+            btnPdf.Location = new Point(308, 319);
             btnPdf.Name = "btnPdf";
-            btnPdf.Size = new Size(237, 101);
+            btnPdf.Size = new Size(215, 68);
             btnPdf.TabIndex = 1;
             btnPdf.Text = "Pdf Olustur";
             btnPdf.UseVisualStyleBackColor = true;
@@ -55,39 +58,42 @@
             // 
             // btnExcel
             // 
-            btnExcel.Location = new Point(232, 465);
+            btnExcel.Font = new Font("Segoe UI", 14F);
+            btnExcel.Location = new Point(25, 319);
             btnExcel.Name = "btnExcel";
-            btnExcel.Size = new Size(237, 101);
+            btnExcel.Size = new Size(215, 68);
             btnExcel.TabIndex = 2;
             btnExcel.Text = "Excel Olustur";
             btnExcel.UseVisualStyleBackColor = true;
             btnExcel.Click += btnExcel_Click;
             // 
-            // label1
+            // groupBox1
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(342, 72);
-            label1.Name = "label1";
-            label1.Size = new Size(265, 37);
-            label1.TabIndex = 3;
-            label1.Text = "Doktor Hasta Sayıları";
+            groupBox1.Controls.Add(lstCount);
+            groupBox1.Controls.Add(btnExcel);
+            groupBox1.Controls.Add(btnPdf);
+            groupBox1.Font = new Font("Segoe UI", 14F);
+            groupBox1.Location = new Point(24, 38);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(665, 454);
+            groupBox1.TabIndex = 4;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Doktor Hasta Sayıları";
             // 
             // DoctorPatientsCountForm
             // 
-            AutoScaleDimensions = new SizeF(15F, 37F);
+            AutoScaleDimensions = new SizeF(18F, 45F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1053, 722);
-            Controls.Add(label1);
-            Controls.Add(btnExcel);
-            Controls.Add(btnPdf);
-            Controls.Add(lstCount);
+            BackColor = SystemColors.ButtonShadow;
+            ClientSize = new Size(757, 554);
+            Controls.Add(groupBox1);
             Font = new Font("Segoe UI", 20F);
             Margin = new Padding(6, 7, 6, 7);
             Name = "DoctorPatientsCountForm";
             Text = "DoctorPatientsCountForm";
             Load += DoctorPatientsCountForm_Load;
+            groupBox1.ResumeLayout(false);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -95,6 +101,6 @@
         private ListBox lstCount;
         private Button btnPdf;
         private Button btnExcel;
-        private Label label1;
+        private GroupBox groupBox1;
     }
 }

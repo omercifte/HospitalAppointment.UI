@@ -28,36 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
             lstCount = new ListBox();
             btnPdf = new Button();
             btnExcel = new Button();
+            groupBox1 = new GroupBox();
+            groupBox1.SuspendLayout();
             SuspendLayout();
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(389, 56);
-            label1.Name = "label1";
-            label1.Size = new Size(247, 37);
-            label1.TabIndex = 0;
-            label1.Text = "Branş Hasta Sayıları";
-            label1.Click += label1_Click;
             // 
             // lstCount
             // 
+            lstCount.Font = new Font("Segoe UI", 14F);
             lstCount.FormattingEnabled = true;
-            lstCount.ItemHeight = 37;
-            lstCount.Location = new Point(285, 123);
+            lstCount.ItemHeight = 31;
+            lstCount.Location = new Point(41, 72);
             lstCount.Name = "lstCount";
-            lstCount.Size = new Size(459, 263);
+            lstCount.Size = new Size(459, 252);
             lstCount.TabIndex = 1;
             // 
             // btnPdf
             // 
-            btnPdf.Location = new Point(555, 415);
+            btnPdf.Font = new Font("Segoe UI", 14F);
+            btnPdf.Location = new Point(311, 330);
             btnPdf.Name = "btnPdf";
-            btnPdf.Size = new Size(189, 98);
+            btnPdf.Size = new Size(189, 63);
             btnPdf.TabIndex = 3;
             btnPdf.Text = "Pdf Oluştur";
             btnPdf.UseVisualStyleBackColor = true;
@@ -65,37 +58,48 @@
             // 
             // btnExcel
             // 
-            btnExcel.Location = new Point(285, 415);
+            btnExcel.Font = new Font("Segoe UI", 14F);
+            btnExcel.Location = new Point(41, 330);
             btnExcel.Name = "btnExcel";
-            btnExcel.Size = new Size(189, 98);
+            btnExcel.Size = new Size(189, 63);
             btnExcel.TabIndex = 4;
             btnExcel.Text = "Excel Oluştur";
             btnExcel.UseVisualStyleBackColor = true;
             btnExcel.Click += btnExcel_Click;
             // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(lstCount);
+            groupBox1.Controls.Add(btnPdf);
+            groupBox1.Controls.Add(btnExcel);
+            groupBox1.Font = new Font("Segoe UI", 16F);
+            groupBox1.Location = new Point(23, 29);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(604, 442);
+            groupBox1.TabIndex = 5;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Branş Hasta Sayıları";
+            // 
             // PatientCountForm
             // 
-            AutoScaleDimensions = new SizeF(15F, 37F);
+            AutoScaleDimensions = new SizeF(18F, 45F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1043, 664);
-            Controls.Add(btnExcel);
-            Controls.Add(btnPdf);
-            Controls.Add(lstCount);
-            Controls.Add(label1);
+            BackColor = SystemColors.ButtonShadow;
+            ClientSize = new Size(693, 509);
+            Controls.Add(groupBox1);
             Font = new Font("Segoe UI", 20F);
             Margin = new Padding(6, 7, 6, 7);
             Name = "PatientCountForm";
             Text = "PatientCountForm";
             Load += PatientCountForm_Load;
+            groupBox1.ResumeLayout(false);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private Label label1;
         private ListBox lstCount;
         private Button btnPdf;
         private Button btnExcel;
+        private GroupBox groupBox1;
     }
 }

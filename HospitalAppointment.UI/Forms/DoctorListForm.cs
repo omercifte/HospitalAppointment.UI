@@ -32,8 +32,26 @@ namespace HospitalAppointment.UI.Forms
 
         private void GetAllDoctors()
         {
-            lstDoctors.Items.Clear();
-            _docService.GetAll().ToList().ForEach(x => lstDoctors.Items.Add(x));
+            var doctors = _docService.GetAll();
+            dgw_doktorlar.DataSource = doctors;
+        }
+
+        private void btn_ara_Click(object sender, EventArgs e)
+        {
+            string searchQuery = txt_aramaYap.Text.Trim();
+            var doctors = _docService.GetAll();
+
+            if (radioButton1.Checked)
+            {
+                var results = doctors.Where(d => d.Name.ToLower().Contains(searchQuery.ToLower())).ToList();
+                dgw_doktorlar.DataSource = results;
+            }
+            else if (radioButton2.Checked)
+            {
+                var results = doctors.Where(d => d.Branch.ToString().ToLower().Contains(searchQuery.ToLower())).ToList();
+                dgw_doktorlar.DataSource = results;
+            }
+            txt_aramaYap.Clear();
         }
     }
 }

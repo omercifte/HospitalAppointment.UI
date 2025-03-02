@@ -28,47 +28,77 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            groupBox1 = new GroupBox();
             lstPatients = new ListBox();
+            label2 = new Label();
+            txt_tc = new TextBox();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
-            // label1
+            // groupBox1
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(159, 134);
-            label1.Name = "label1";
-            label1.Size = new Size(163, 37);
-            label1.TabIndex = 0;
-            label1.Text = "Hasta Listesi";
+            groupBox1.Controls.Add(lstPatients);
+            groupBox1.Font = new Font("Segoe UI", 14F);
+            groupBox1.Location = new Point(39, 74);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(787, 405);
+            groupBox1.TabIndex = 7;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Hasta Listesi";
             // 
             // lstPatients
             // 
+            lstPatients.Font = new Font("Segoe UI", 14F);
             lstPatients.FormattingEnabled = true;
-            lstPatients.ItemHeight = 37;
-            lstPatients.Location = new Point(159, 199);
+            lstPatients.ItemHeight = 31;
+            lstPatients.Location = new Point(18, 38);
             lstPatients.Name = "lstPatients";
-            lstPatients.Size = new Size(680, 411);
-            lstPatients.TabIndex = 1;
+            lstPatients.Size = new Size(723, 345);
+            lstPatients.TabIndex = 5;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 14F);
+            label2.Location = new Point(477, 40);
+            label2.Name = "label2";
+            label2.Size = new Size(102, 32);
+            label2.TabIndex = 6;
+            label2.Text = "Hasta Tc";
+            // 
+            // txt_tc
+            // 
+            txt_tc.Font = new Font("Segoe UI", 14F);
+            txt_tc.Location = new Point(585, 36);
+            txt_tc.Name = "txt_tc";
+            txt_tc.Size = new Size(226, 39);
+            txt_tc.TabIndex = 5;
+            txt_tc.TextChanged += txt_tc_TextChanged;
             // 
             // PatientList
             // 
-            AutoScaleDimensions = new SizeF(15F, 37F);
+            AutoScaleDimensions = new SizeF(18F, 45F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1153, 699);
-            Controls.Add(lstPatients);
-            Controls.Add(label1);
+            BackColor = SystemColors.ButtonShadow;
+            ClientSize = new Size(859, 506);
+            Controls.Add(groupBox1);
+            Controls.Add(label2);
+            Controls.Add(txt_tc);
             Font = new Font("Segoe UI", 20F);
             Margin = new Padding(6, 7, 6, 7);
             Name = "PatientList";
             Text = "PatientList";
             Load += PatientList_Load;
+            groupBox1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
+        private GroupBox groupBox1;
         private ListBox lstPatients;
+        private Label label2;
+        private TextBox txt_tc;
     }
 }

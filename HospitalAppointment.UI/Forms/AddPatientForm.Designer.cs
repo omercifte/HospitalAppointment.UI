@@ -54,15 +54,21 @@
             // 
             // Id
             // 
+            Id.MinimumWidth = 6;
             Id.Name = "Id";
+            Id.Width = 125;
             // 
             // colPatientName
             // 
+            colPatientName.MinimumWidth = 6;
             colPatientName.Name = "colPatientName";
+            colPatientName.Width = 125;
             // 
             // Surname
             // 
+            Surname.MinimumWidth = 6;
             Surname.Name = "Surname";
+            Surname.Width = 125;
             // 
             // TcNo
             // 
@@ -75,91 +81,97 @@
             // lbl_bolum
             // 
             lbl_bolum.AutoSize = true;
-            lbl_bolum.Location = new Point(17, 38);
+            lbl_bolum.Location = new Point(19, 51);
             lbl_bolum.Name = "lbl_bolum";
-            lbl_bolum.Size = new Size(81, 15);
+            lbl_bolum.Size = new Size(102, 20);
             lbl_bolum.TabIndex = 39;
             lbl_bolum.Text = "Bölüm Seçiniz";
             // 
             // lbl_ad
             // 
             lbl_ad.AutoSize = true;
-            lbl_ad.Location = new Point(13, 35);
+            lbl_ad.Location = new Point(15, 47);
             lbl_ad.Name = "lbl_ad";
-            lbl_ad.Size = new Size(22, 15);
+            lbl_ad.Size = new Size(28, 20);
             lbl_ad.TabIndex = 54;
             lbl_ad.Text = "Ad";
             // 
             // lbl_tc
             // 
             lbl_tc.AutoSize = true;
-            lbl_tc.Location = new Point(10, 128);
+            lbl_tc.Location = new Point(11, 171);
             lbl_tc.Name = "lbl_tc";
-            lbl_tc.Size = new Size(75, 15);
+            lbl_tc.Size = new Size(92, 20);
             lbl_tc.TabIndex = 53;
             lbl_tc.Text = "TC Numarası";
             // 
             // txt_tc
             // 
-            txt_tc.Location = new Point(100, 120);
+            txt_tc.Location = new Point(114, 160);
+            txt_tc.Margin = new Padding(3, 4, 3, 4);
             txt_tc.Name = "txt_tc";
-            txt_tc.Size = new Size(179, 23);
+            txt_tc.Size = new Size(204, 27);
             txt_tc.TabIndex = 52;
             // 
             // lbl_soyad
             // 
             lbl_soyad.AutoSize = true;
-            lbl_soyad.Location = new Point(13, 81);
+            lbl_soyad.Location = new Point(15, 108);
             lbl_soyad.Name = "lbl_soyad";
-            lbl_soyad.Size = new Size(39, 15);
+            lbl_soyad.Size = new Size(50, 20);
             lbl_soyad.TabIndex = 51;
             lbl_soyad.Text = "Soyad";
             // 
             // txt_soyad
             // 
-            txt_soyad.Location = new Point(100, 78);
+            txt_soyad.Location = new Point(114, 104);
+            txt_soyad.Margin = new Padding(3, 4, 3, 4);
             txt_soyad.Name = "txt_soyad";
-            txt_soyad.Size = new Size(179, 23);
+            txt_soyad.Size = new Size(204, 27);
             txt_soyad.TabIndex = 50;
             // 
             // txt_ad
             // 
-            txt_ad.Location = new Point(100, 33);
+            txt_ad.Location = new Point(114, 44);
+            txt_ad.Margin = new Padding(3, 4, 3, 4);
             txt_ad.Name = "txt_ad";
-            txt_ad.Size = new Size(179, 23);
+            txt_ad.Size = new Size(204, 27);
             txt_ad.TabIndex = 49;
             // 
             // cmb_bolum
             // 
             cmb_bolum.FormattingEnabled = true;
-            cmb_bolum.Location = new Point(112, 36);
+            cmb_bolum.Location = new Point(128, 48);
+            cmb_bolum.Margin = new Padding(3, 4, 3, 4);
             cmb_bolum.Name = "cmb_bolum";
-            cmb_bolum.Size = new Size(217, 23);
+            cmb_bolum.Size = new Size(247, 28);
             cmb_bolum.TabIndex = 38;
             cmb_bolum.SelectedIndexChanged += cmb_bolum_SelectedIndexChanged;
             // 
             // chkList
             // 
             chkList.FormattingEnabled = true;
-            chkList.Location = new Point(27, 134);
+            chkList.Location = new Point(31, 179);
+            chkList.Margin = new Padding(3, 4, 3, 4);
             chkList.Name = "chkList";
-            chkList.Size = new Size(302, 94);
+            chkList.Size = new Size(345, 114);
             chkList.TabIndex = 42;
             // 
             // lbl_doktor
             // 
             lbl_doktor.AutoSize = true;
-            lbl_doktor.Location = new Point(349, 38);
+            lbl_doktor.Location = new Point(399, 51);
             lbl_doktor.Name = "lbl_doktor";
-            lbl_doktor.Size = new Size(82, 15);
+            lbl_doktor.Size = new Size(105, 20);
             lbl_doktor.TabIndex = 37;
             lbl_doktor.Text = "Doktor Seçiniz";
             // 
             // btn_kaydet
             // 
-            btn_kaydet.Location = new Point(152, 298);
+            btn_kaydet.Location = new Point(174, 397);
+            btn_kaydet.Margin = new Padding(3, 4, 3, 4);
             btn_kaydet.Name = "btn_kaydet";
-            btn_kaydet.Size = new Size(333, 28);
+            btn_kaydet.Size = new Size(381, 37);
             btn_kaydet.TabIndex = 40;
             btn_kaydet.Text = "Kaydet";
             btn_kaydet.UseVisualStyleBackColor = true;
@@ -168,25 +180,27 @@
             // cmb_doktor
             // 
             cmb_doktor.FormattingEnabled = true;
-            cmb_doktor.Location = new Point(446, 36);
+            cmb_doktor.Location = new Point(510, 48);
+            cmb_doktor.Margin = new Padding(3, 4, 3, 4);
             cmb_doktor.Name = "cmb_doktor";
-            cmb_doktor.Size = new Size(217, 23);
+            cmb_doktor.Size = new Size(247, 28);
             cmb_doktor.TabIndex = 36;
             cmb_doktor.SelectedIndexChanged += cmb_doktor_SelectedIndexChanged;
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(112, 87);
+            dateTimePicker1.Location = new Point(128, 116);
+            dateTimePicker1.Margin = new Padding(3, 4, 3, 4);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(217, 23);
+            dateTimePicker1.Size = new Size(247, 27);
             dateTimePicker1.TabIndex = 32;
             // 
             // lbl_tarih
             // 
             lbl_tarih.AutoSize = true;
-            lbl_tarih.Location = new Point(17, 91);
+            lbl_tarih.Location = new Point(19, 121);
             lbl_tarih.Name = "lbl_tarih";
-            lbl_tarih.Size = new Size(72, 15);
+            lbl_tarih.Size = new Size(90, 20);
             lbl_tarih.TabIndex = 31;
             lbl_tarih.Text = "Tarih Seçiniz";
             // 
@@ -198,11 +212,9 @@
             groupBox4.Controls.Add(lbl_soyad);
             groupBox4.Controls.Add(txt_soyad);
             groupBox4.Controls.Add(txt_ad);
-            groupBox4.Location = new Point(396, 81);
-            groupBox4.Margin = new Padding(3, 2, 3, 2);
+            groupBox4.Location = new Point(453, 108);
             groupBox4.Name = "groupBox4";
-            groupBox4.Padding = new Padding(3, 2, 3, 2);
-            groupBox4.Size = new Size(284, 198);
+            groupBox4.Size = new Size(325, 264);
             groupBox4.TabIndex = 43;
             groupBox4.TabStop = false;
             groupBox4.Text = "Hasta Bilgileri";
@@ -219,23 +231,20 @@
             groupBox3.Controls.Add(cmb_doktor);
             groupBox3.Controls.Add(dateTimePicker1);
             groupBox3.Controls.Add(lbl_tarih);
-            groupBox3.Location = new Point(29, 20);
-            groupBox3.Margin = new Padding(3, 2, 3, 2);
+            groupBox3.Location = new Point(33, 27);
             groupBox3.Name = "groupBox3";
-            groupBox3.Padding = new Padding(3, 2, 3, 2);
-            groupBox3.Size = new Size(684, 368);
+            groupBox3.Size = new Size(808, 491);
             groupBox3.TabIndex = 32;
             groupBox3.TabStop = false;
             groupBox3.Text = "Hasta Kaydet";
             // 
             // AddPatientForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonShadow;
-            ClientSize = new Size(1096, 430);
+            ClientSize = new Size(864, 555);
             Controls.Add(groupBox3);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "AddPatientForm";
             Text = "AddPatientForm";
             Load += AddPatientForm_Load;

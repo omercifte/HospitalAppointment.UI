@@ -36,5 +36,31 @@ namespace HospitalAppointment.UI.Forms
             _pService.GetAll().ToList().ForEach(x => lstPatients.Items.Add(x));
         }
 
+        private void txt_tc_TextChanged(object sender, EventArgs e)
+        {
+            string searchTc = txt_tc.Text.Trim();
+
+            if (searchTc.Length >= 3)
+            {
+                var patients = _pService.GetAll()
+                    .Where(p => p.TcNo.Contains(searchTc))
+                    .ToList();
+
+                lstPatients.Items.Clear();
+
+                if (patients.Any())
+                {
+                    patients.ForEach(patient => lstPatients.Items.Add(patient));
+                }
+                else
+                {
+                    lstPatients.Items.Add("Hasta bulunamadı.");
+                }
+            }
+            else
+            {
+                lstPatients.Items.Clear();
+            }
+        }
     }
 }

@@ -39,40 +39,45 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(30, 68);
+            label1.Font = new Font("Segoe UI", 14F);
+            label1.Location = new Point(38, 55);
             label1.Name = "label1";
-            label1.Size = new Size(99, 37);
+            label1.Size = new Size(87, 32);
             label1.TabIndex = 1;
             label1.Text = "Doktor";
             // 
             // cmbDoctor
             // 
+            cmbDoctor.Font = new Font("Segoe UI", 14F);
             cmbDoctor.FormattingEnabled = true;
-            cmbDoctor.Location = new Point(217, 68);
+            cmbDoctor.Location = new Point(225, 55);
             cmbDoctor.Name = "cmbDoctor";
-            cmbDoctor.Size = new Size(525, 45);
+            cmbDoctor.Size = new Size(525, 39);
             cmbDoctor.TabIndex = 2;
             // 
             // dtpDate
             // 
-            dtpDate.Location = new Point(217, 136);
+            dtpDate.Font = new Font("Segoe UI", 14F);
+            dtpDate.Location = new Point(225, 123);
             dtpDate.Name = "dtpDate";
-            dtpDate.Size = new Size(525, 43);
+            dtpDate.Size = new Size(525, 39);
             dtpDate.TabIndex = 3;
             dtpDate.ValueChanged += dtpDate_ValueChanged;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(30, 142);
+            label2.Font = new Font("Segoe UI", 14F);
+            label2.Location = new Point(38, 129);
             label2.Name = "label2";
-            label2.Size = new Size(73, 37);
+            label2.Size = new Size(64, 32);
             label2.TabIndex = 4;
             label2.Text = "Tarih";
             // 
             // btnKaydet
             // 
-            btnKaydet.Location = new Point(436, 400);
+            btnKaydet.Font = new Font("Segoe UI", 14F);
+            btnKaydet.Location = new Point(370, 346);
             btnKaydet.Name = "btnKaydet";
             btnKaydet.Size = new Size(186, 69);
             btnKaydet.TabIndex = 6;
@@ -82,17 +87,19 @@
             // 
             // chkList
             // 
+            chkList.Font = new Font("Segoe UI", 14F);
             chkList.FormattingEnabled = true;
-            chkList.Location = new Point(217, 217);
+            chkList.Location = new Point(225, 204);
             chkList.Name = "chkList";
-            chkList.Size = new Size(525, 118);
+            chkList.Size = new Size(525, 106);
             chkList.TabIndex = 7;
             // 
             // DoctorInfoForm
             // 
-            AutoScaleDimensions = new SizeF(15F, 37F);
+            AutoScaleDimensions = new SizeF(18F, 45F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(968, 670);
+            BackColor = SystemColors.ButtonShadow;
+            ClientSize = new Size(930, 504);
             Controls.Add(chkList);
             Controls.Add(btnKaydet);
             Controls.Add(label2);
