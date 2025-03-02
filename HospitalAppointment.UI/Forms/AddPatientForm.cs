@@ -96,8 +96,11 @@ namespace HospitalAppointment.UI.Forms
                 }
 
                 MessageBox.Show("Randevu başarıyla kaydedildi");
+                txt_ad.Text = string.Empty;
+                txt_soyad.Text = string.Empty;
+                txt_tc.Text = string.Empty;
                 LoadAvailableTimes();
-                GetAllPatients();
+                //GetAllPatients();
 
             }
             catch (Exception ex)
@@ -110,21 +113,21 @@ namespace HospitalAppointment.UI.Forms
         private void AddPatientForm_Load(object sender, EventArgs e)
         {
             cmb_bolum.DataSource = Enum.GetValues(typeof(Branches));
-            GetAllPatients();
+            //GetAllPatients();
             ClearForm();
         }
 
 
-        private void GetAllPatients()
-        {
-            dgw_hastalar.DataSource = _pService.GetAll().Select(p => new
-            {
-                p.Id,
-                p.Name,
-                p.Surname,
-                p.TcNo,
-            }).ToList();
-        }
+        //private void GetAllPatients()
+        //{
+        //    dgw_hastalar.DataSource = _pService.GetAll().Select(p => new
+        //    {
+        //        p.Id,
+        //        p.Name,
+        //        p.Surname,
+        //        p.TcNo,
+        //    }).ToList();
+        //}
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
@@ -196,37 +199,37 @@ namespace HospitalAppointment.UI.Forms
 
         }
 
-        private void dgw_hastalar_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dgw_hastalar.SelectedRows.Count > 0)
-            {
-                var selectedRow = dgw_hastalar.SelectedRows[0];
+        //private void dgw_hastalar_SelectionChanged(object sender, EventArgs e)
+        //{
+        //    if (dgw_hastalar.SelectedRows.Count > 0)
+        //    {
+        //        var selectedRow = dgw_hastalar.SelectedRows[0];
 
-                Guid hastaId = (Guid)selectedRow.Cells["Id"].Value;
+        //        Guid hastaId = (Guid)selectedRow.Cells["Id"].Value;
 
-                Patients? selectedPatient = _pService.GetAll().FirstOrDefault(p => p.Id == hastaId);
-                if (selectedPatient != null)
-                {
-                    txt_ad.Text = selectedPatient.Name;
-                    txt_soyad.Text = selectedPatient.Surname;
-                    txt_tc.Text = selectedPatient.TcNo;
-                }
-                Appointment? patientAppointment = _aService.GetAll().FirstOrDefault(a => a.PatientId == hastaId && a.IsActive);
-                if (patientAppointment != null)
-                {
-                    Doctors? selectedDoctor = _dService.GetAll().FirstOrDefault(d => d.Id == patientAppointment.DoctorId);
-                    if (selectedDoctor != null)
-                    {
-                        cmb_doktor.SelectedItem = selectedDoctor;
-                        cmb_bolum.SelectedItem = selectedDoctor.Branch;
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Lütfen bir hasta seçiniz.");
-            }
-        }
+        //        Patients? selectedPatient = _pService.GetAll().FirstOrDefault(p => p.Id == hastaId);
+        //        if (selectedPatient != null)
+        //        {
+        //            txt_ad.Text = selectedPatient.Name;
+        //            txt_soyad.Text = selectedPatient.Surname;
+        //            txt_tc.Text = selectedPatient.TcNo;
+        //        }
+        //        Appointment? patientAppointment = _aService.GetAll().FirstOrDefault(a => a.PatientId == hastaId && a.IsActive);
+        //        if (patientAppointment != null)
+        //        {
+        //            Doctors? selectedDoctor = _dService.GetAll().FirstOrDefault(d => d.Id == patientAppointment.DoctorId);
+        //            if (selectedDoctor != null)
+        //            {
+        //                cmb_doktor.SelectedItem = selectedDoctor;
+        //                cmb_bolum.SelectedItem = selectedDoctor.Branch;
+        //            }
+        //        }
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Lütfen bir hasta seçiniz.");
+        //    }
+        //}
 
         private void btn_yeni_Click(object sender, EventArgs e)
         {
@@ -256,21 +259,21 @@ namespace HospitalAppointment.UI.Forms
 
         }
 
-        private void txt_hastaAra_TextChanged(object sender, EventArgs e)
-        {
-            string searchQuery = txt_tc.Text.Trim();
-            if (!string.IsNullOrEmpty(searchQuery) && searchQuery.Length >= 3)
-            {
-                var data = _pService.GetAll();
-                var results = data.Where(d => d.TcNo.ToString().Contains(searchQuery)) 
-                                    .ToList();
-                dgw_hastalar.DataSource = results;
-            }
-            else
-            {
-                GetAllPatients();
-            }
-        }
+        //private void txt_hastaAra_TextChanged(object sender, EventArgs e)
+        //{
+        //    string searchQuery = txt_tc.Text.Trim();
+        //    if (!string.IsNullOrEmpty(searchQuery) && searchQuery.Length >= 3)
+        //    {
+        //        var data = _pService.GetAll();
+        //        var results = data.Where(d => d.TcNo.ToString().Contains(searchQuery)) 
+        //                            .ToList();
+        //        dgw_hastalar.DataSource = results;
+        //    }
+        //    else
+        //    {
+        //        GetAllPatients();
+        //    }
+        //}
 
         private void dgw_hastalar_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

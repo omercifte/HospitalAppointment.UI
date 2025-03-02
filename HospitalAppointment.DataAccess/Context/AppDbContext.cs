@@ -18,6 +18,7 @@ namespace HospitalAppointment.DataAccess.Context
         public DbSet<DoctorAvailability> DoctorAvailabilities { get; set; }
 
 
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=HospitalProje;Integrated Security=True;Trust Server Certificate=True;");

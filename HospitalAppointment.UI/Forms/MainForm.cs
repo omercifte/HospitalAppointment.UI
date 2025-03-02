@@ -59,7 +59,9 @@ namespace HospitalAppointment.UI.Forms
 
         private void doktorKayıtToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            PatientList plistForm = new PatientList();
+            plistForm.MdiParent = this;
+            GetForm(plistForm);
         }
 
         private void doktorListesiToolStripMenuItem_Click(object sender, EventArgs e)
@@ -94,11 +96,24 @@ namespace HospitalAppointment.UI.Forms
             foreach (Control ctl in this.Controls)
             {
                 if (ctl is MdiClient mdiClient)
-                {  
-                    mdiClient.BackgroundImage = Properties.Resources.bg;  
+                {
+                    mdiClient.BackgroundImage = Properties.Resources.bg;
                 }
             }
         }
 
+        private void hastaİstatistikleriToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PatientCountForm countpatientForm = new PatientCountForm();
+            countpatientForm.MdiParent = this;
+            GetForm(countpatientForm);
+        }
+
+        private void randevuİstatistikleriToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DoctorPatientsCountForm dcountpatientForm = new DoctorPatientsCountForm();
+            dcountpatientForm.MdiParent = this;
+            GetForm(dcountpatientForm);
+        }
     }
 }

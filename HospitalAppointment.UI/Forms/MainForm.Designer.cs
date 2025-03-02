@@ -117,12 +117,14 @@
             hastaİstatistikleriToolStripMenuItem.Name = "hastaİstatistikleriToolStripMenuItem";
             hastaİstatistikleriToolStripMenuItem.Size = new Size(214, 24);
             hastaİstatistikleriToolStripMenuItem.Text = "Hasta İstatistikleri";
+            hastaİstatistikleriToolStripMenuItem.Click += hastaİstatistikleriToolStripMenuItem_Click;
             // 
             // randevuİstatistikleriToolStripMenuItem
             // 
             randevuİstatistikleriToolStripMenuItem.Name = "randevuİstatistikleriToolStripMenuItem";
             randevuİstatistikleriToolStripMenuItem.Size = new Size(214, 24);
             randevuİstatistikleriToolStripMenuItem.Text = "Randevu İstatistikleri";
+            randevuİstatistikleriToolStripMenuItem.Click += randevuİstatistikleriToolStripMenuItem_Click;
             // 
             // MainForm
             // 

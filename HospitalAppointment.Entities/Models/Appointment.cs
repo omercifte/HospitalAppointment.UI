@@ -15,5 +15,6 @@ namespace HospitalAppointment.Entities.Models
         public Doctors? Doctor { get; set; }
         public DateTime AppointmentDate { get; set; }
         public TimeSpan Time { get; set; }
+
     }
 }

@@ -12,7 +12,7 @@ namespace HospitalAppointment.Entities.Enums
         Kardiyoloji = 1,
         KBB = 2,
         Noroloji = 3,
-        Ortıpedik = 4,
+        Ortopedi = 4,
         Pediatri = 5
     }
 }
