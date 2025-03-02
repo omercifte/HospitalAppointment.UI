@@ -30,42 +30,56 @@
         {
             label1 = new Label();
             lstCount = new ListBox();
-            label2 = new Label();
+            btnPdf = new Button();
+            btnExcel = new Button();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(94, 96);
+            label1.Location = new Point(389, 56);
             label1.Name = "label1";
-            label1.Size = new Size(90, 37);
+            label1.Size = new Size(247, 37);
             label1.TabIndex = 0;
-            label1.Text = "label1";
+            label1.Text = "Branş Hasta Sayıları";
+            label1.Click += label1_Click;
             // 
             // lstCount
             // 
             lstCount.FormattingEnabled = true;
             lstCount.ItemHeight = 37;
-            lstCount.Location = new Point(239, 105);
+            lstCount.Location = new Point(285, 123);
             lstCount.Name = "lstCount";
-            lstCount.Size = new Size(378, 189);
+            lstCount.Size = new Size(459, 263);
             lstCount.TabIndex = 1;
             // 
-            // label2
+            // btnPdf
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(94, 257);
-            label2.Name = "label2";
-            label2.Size = new Size(90, 37);
-            label2.TabIndex = 2;
-            label2.Text = "label2";
+            btnPdf.Location = new Point(555, 415);
+            btnPdf.Name = "btnPdf";
+            btnPdf.Size = new Size(189, 98);
+            btnPdf.TabIndex = 3;
+            btnPdf.Text = "Pdf Oluştur";
+            btnPdf.UseVisualStyleBackColor = true;
+            btnPdf.Click += btnPdf_Click;
+            // 
+            // btnExcel
+            // 
+            btnExcel.Location = new Point(285, 415);
+            btnExcel.Name = "btnExcel";
+            btnExcel.Size = new Size(189, 98);
+            btnExcel.TabIndex = 4;
+            btnExcel.Text = "Excel Oluştur";
+            btnExcel.UseVisualStyleBackColor = true;
+            btnExcel.Click += btnExcel_Click;
             // 
             // PatientCountForm
             // 
             AutoScaleDimensions = new SizeF(15F, 37F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1043, 664);
-            Controls.Add(label2);
+            Controls.Add(btnExcel);
+            Controls.Add(btnPdf);
             Controls.Add(lstCount);
             Controls.Add(label1);
             Font = new Font("Segoe UI", 20F);
@@ -81,6 +95,7 @@
 
         private Label label1;
         private ListBox lstCount;
-        private Label label2;
+        private Button btnPdf;
+        private Button btnExcel;
     }
 }

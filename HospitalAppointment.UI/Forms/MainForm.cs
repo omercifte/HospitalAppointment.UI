@@ -20,7 +20,14 @@ namespace HospitalAppointment.UI.Forms
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
+            PlayBackgroundMusic();
+        }
+        private void PlayBackgroundMusic()
+        {
+            axWindowsMediaPlayer1.URL = "C:\\Users\\ömer\\source\\repos\\HospitalAppointment.UI\\HospitalAppointment.UI\\Resources\\Relaxing Sleep Music + Insomnia - Stress Relief, Relaxing Music, Deep Sleeping Music (mp3cut.net).mp3"; // MP3 dosyanızın yolu
+            axWindowsMediaPlayer1.settings.setMode("loop", true); 
+            axWindowsMediaPlayer1.settings.volume = 100; 
+            axWindowsMediaPlayer1.Visible = false; 
         }
         private void OpenForm(Form form)
         {
@@ -114,6 +121,11 @@ namespace HospitalAppointment.UI.Forms
             DoctorPatientsCountForm dcountpatientForm = new DoctorPatientsCountForm();
             dcountpatientForm.MdiParent = this;
             GetForm(dcountpatientForm);
+        }
+
+        private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             hastaKayıtToolStripMenuItem = new ToolStripMenuItem();
             hastaKayıtToolStripMenuItem1 = new ToolStripMenuItem();
             doktorKayıtToolStripMenuItem = new ToolStripMenuItem();
@@ -39,7 +40,11 @@
             raporlarVeİstatistiklerToolStripMenuItem = new ToolStripMenuItem();
             hastaİstatistikleriToolStripMenuItem = new ToolStripMenuItem();
             randevuİstatistikleriToolStripMenuItem = new ToolStripMenuItem();
+            sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
+            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)axWindowsMediaPlayer1).BeginInit();
             SuspendLayout();
             // 
             // hastaKayıtToolStripMenuItem
@@ -53,14 +58,14 @@
             // hastaKayıtToolStripMenuItem1
             // 
             hastaKayıtToolStripMenuItem1.Name = "hastaKayıtToolStripMenuItem1";
-            hastaKayıtToolStripMenuItem1.Size = new Size(160, 24);
+            hastaKayıtToolStripMenuItem1.Size = new Size(180, 24);
             hastaKayıtToolStripMenuItem1.Text = "Hasta Kayıt";
             hastaKayıtToolStripMenuItem1.Click += hastaKayıtToolStripMenuItem1_Click;
             // 
             // doktorKayıtToolStripMenuItem
             // 
             doktorKayıtToolStripMenuItem.Name = "doktorKayıtToolStripMenuItem";
-            doktorKayıtToolStripMenuItem.Size = new Size(160, 24);
+            doktorKayıtToolStripMenuItem.Size = new Size(180, 24);
             doktorKayıtToolStripMenuItem.Text = "Hasta Listesi";
             doktorKayıtToolStripMenuItem.Click += doktorKayıtToolStripMenuItem_Click;
             // 
@@ -126,12 +131,28 @@
             randevuİstatistikleriToolStripMenuItem.Text = "Randevu İstatistikleri";
             randevuİstatistikleriToolStripMenuItem.Click += randevuİstatistikleriToolStripMenuItem_Click;
             // 
+            // sqlCommand1
+            // 
+            sqlCommand1.CommandTimeout = 30;
+            sqlCommand1.EnableOptimizedParameterBinding = false;
+            // 
+            // axWindowsMediaPlayer1
+            // 
+            axWindowsMediaPlayer1.Enabled = true;
+            axWindowsMediaPlayer1.Location = new Point(539, 388);
+            axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
+            axWindowsMediaPlayer1.OcxState = (AxHost.State)resources.GetObject("axWindowsMediaPlayer1.OcxState");
+            axWindowsMediaPlayer1.Size = new Size(401, 232);
+            axWindowsMediaPlayer1.TabIndex = 5;
+            axWindowsMediaPlayer1.Enter += axWindowsMediaPlayer1_Enter;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(192, 192, 255);
-            ClientSize = new Size(1557, 802);
+            ClientSize = new Size(1557, 710);
+            Controls.Add(axWindowsMediaPlayer1);
             Controls.Add(menuStrip1);
             IsMdiContainer = true;
             Margin = new Padding(3, 2, 3, 2);
@@ -140,6 +161,7 @@
             Load += MainForm_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)axWindowsMediaPlayer1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -157,5 +179,8 @@
         private ToolStripMenuItem hastaİstatistikleriToolStripMenuItem;
         private ToolStripMenuItem randevuİstatistikleriToolStripMenuItem;
         private ToolStripMenuItem doktorBilgiToolStripMenuItem;
+        private Microsoft.Data.SqlClient.SqlCommand sqlCommand1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
     }
 }
