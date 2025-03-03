@@ -33,87 +33,75 @@
             txt_ilacAdi = new TextBox();
             txt_fiyat = new TextBox();
             btn_kaydet = new Button();
-            btn_sil = new Button();
-            button1 = new Button();
+            lstList = new ListBox();
             SuspendLayout();
             // 
             // lbl_ilacAdi
             // 
             lbl_ilacAdi.AutoSize = true;
-            lbl_ilacAdi.Location = new Point(124, 75);
+            lbl_ilacAdi.Location = new Point(108, 56);
             lbl_ilacAdi.Name = "lbl_ilacAdi";
-            lbl_ilacAdi.Size = new Size(59, 20);
+            lbl_ilacAdi.Size = new Size(46, 15);
             lbl_ilacAdi.TabIndex = 0;
             lbl_ilacAdi.Text = "İlaç Adı";
             // 
             // lbl_fiyat
             // 
             lbl_fiyat.AutoSize = true;
-            lbl_fiyat.Location = new Point(124, 151);
+            lbl_fiyat.Location = new Point(108, 113);
             lbl_fiyat.Name = "lbl_fiyat";
-            lbl_fiyat.Size = new Size(40, 20);
+            lbl_fiyat.Size = new Size(32, 15);
             lbl_fiyat.TabIndex = 1;
             lbl_fiyat.Text = "Fiyat";
             // 
             // txt_ilacAdi
             // 
-            txt_ilacAdi.Location = new Point(255, 75);
-            txt_ilacAdi.Margin = new Padding(3, 4, 3, 4);
+            txt_ilacAdi.Location = new Point(223, 56);
             txt_ilacAdi.Name = "txt_ilacAdi";
-            txt_ilacAdi.Size = new Size(166, 27);
+            txt_ilacAdi.Size = new Size(146, 23);
             txt_ilacAdi.TabIndex = 2;
             // 
             // txt_fiyat
             // 
-            txt_fiyat.Location = new Point(255, 144);
-            txt_fiyat.Margin = new Padding(3, 4, 3, 4);
+            txt_fiyat.Location = new Point(223, 108);
             txt_fiyat.Name = "txt_fiyat";
-            txt_fiyat.Size = new Size(166, 27);
+            txt_fiyat.Size = new Size(146, 23);
             txt_fiyat.TabIndex = 3;
             // 
             // btn_kaydet
             // 
-            btn_kaydet.Location = new Point(234, 215);
+            btn_kaydet.Location = new Point(215, 159);
+            btn_kaydet.Margin = new Padding(3, 2, 3, 2);
             btn_kaydet.Name = "btn_kaydet";
-            btn_kaydet.Size = new Size(176, 45);
+            btn_kaydet.Size = new Size(154, 34);
             btn_kaydet.TabIndex = 4;
             btn_kaydet.Text = "Kaydet";
             btn_kaydet.UseVisualStyleBackColor = true;
             btn_kaydet.Click += btn_kaydet_Click;
             // 
-            // btn_sil
+            // lstList
             // 
-            btn_sil.Location = new Point(560, 390);
-            btn_sil.Name = "btn_sil";
-            btn_sil.Size = new Size(98, 46);
-            btn_sil.TabIndex = 6;
-            btn_sil.Text = "Sil";
-            btn_sil.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(560, 288);
-            button1.Name = "button1";
-            button1.Size = new Size(98, 63);
-            button1.TabIndex = 8;
-            button1.Text = "Kaydet";
-            button1.UseVisualStyleBackColor = true;
+            lstList.FormattingEnabled = true;
+            lstList.ItemHeight = 15;
+            lstList.Location = new Point(501, 56);
+            lstList.Name = "lstList";
+            lstList.Size = new Size(271, 124);
+            lstList.TabIndex = 5;
             // 
             // MedicineForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1095, 600);
-            Controls.Add(button1);
-            Controls.Add(btn_sil);
+            ClientSize = new Size(958, 450);
+            Controls.Add(lstList);
             Controls.Add(btn_kaydet);
             Controls.Add(txt_fiyat);
             Controls.Add(txt_ilacAdi);
             Controls.Add(lbl_fiyat);
             Controls.Add(lbl_ilacAdi);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "MedicineForm";
             Text = "MedicineForm";
+            Load += MedicineForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -125,7 +113,6 @@
         private TextBox txt_ilacAdi;
         private TextBox txt_fiyat;
         private Button btn_kaydet;
-        private Button btn_sil;
-        private Button button1;
+        private ListBox lstList;
     }
 }

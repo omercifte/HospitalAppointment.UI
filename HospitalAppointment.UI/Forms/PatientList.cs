@@ -62,5 +62,10 @@ namespace HospitalAppointment.UI.Forms
                 lstPatients.Items.Clear();
             }
         }
+
+        private void lstPatients_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

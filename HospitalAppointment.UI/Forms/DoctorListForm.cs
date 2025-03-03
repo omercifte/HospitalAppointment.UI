@@ -53,5 +53,10 @@ namespace HospitalAppointment.UI.Forms
             }
             txt_aramaYap.Clear();
         }
+
+        private void dgw_doktorlar_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

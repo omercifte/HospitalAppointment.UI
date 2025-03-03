@@ -47,6 +47,14 @@ namespace HospitalAppointment.UI.Forms
             }
         }
 
-        
+        private void MedicineForm_Load(object sender, EventArgs e)
+        {
+            GetAllMedicine();
+        }
+
+        private void GetAllMedicine()
+        {
+            _medicineService.GetAll().ToList().ForEach(x => lstList.Items.Add(x)); ;
+        }
     }
 }

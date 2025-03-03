@@ -50,11 +50,12 @@
             // 
             lstPatients.Font = new Font("Segoe UI", 14F);
             lstPatients.FormattingEnabled = true;
-            lstPatients.ItemHeight = 31;
+            lstPatients.ItemHeight = 25;
             lstPatients.Location = new Point(18, 38);
             lstPatients.Name = "lstPatients";
-            lstPatients.Size = new Size(723, 345);
+            lstPatients.Size = new Size(723, 329);
             lstPatients.TabIndex = 5;
+            lstPatients.SelectedIndexChanged += lstPatients_SelectedIndexChanged;
             // 
             // label2
             // 
@@ -62,7 +63,7 @@
             label2.Font = new Font("Segoe UI", 14F);
             label2.Location = new Point(477, 40);
             label2.Name = "label2";
-            label2.Size = new Size(102, 32);
+            label2.Size = new Size(81, 25);
             label2.TabIndex = 6;
             label2.Text = "Hasta Tc";
             // 
@@ -71,13 +72,13 @@
             txt_tc.Font = new Font("Segoe UI", 14F);
             txt_tc.Location = new Point(585, 36);
             txt_tc.Name = "txt_tc";
-            txt_tc.Size = new Size(226, 39);
+            txt_tc.Size = new Size(226, 32);
             txt_tc.TabIndex = 5;
             txt_tc.TextChanged += txt_tc_TextChanged;
             // 
             // PatientList
             // 
-            AutoScaleDimensions = new SizeF(18F, 45F);
+            AutoScaleDimensions = new SizeF(15F, 37F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonShadow;
             ClientSize = new Size(859, 506);

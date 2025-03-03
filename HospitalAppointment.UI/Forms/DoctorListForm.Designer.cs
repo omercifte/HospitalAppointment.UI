@@ -56,6 +56,7 @@
             dgw_doktorlar.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgw_doktorlar.Size = new Size(857, 331);
             dgw_doktorlar.TabIndex = 16;
+            dgw_doktorlar.CellContentClick += dgw_doktorlar_CellContentClick;
             // 
             // Id
             // 
@@ -73,7 +74,7 @@
             colDoctorName.MinimumWidth = 6;
             colDoctorName.Name = "colDoctorName";
             colDoctorName.SortMode = DataGridViewColumnSortMode.NotSortable;
-            colDoctorName.Width = 115;
+            colDoctorName.Width = 94;
             // 
             // Surname
             // 
@@ -82,7 +83,7 @@
             Surname.MinimumWidth = 6;
             Surname.Name = "Surname";
             Surname.SortMode = DataGridViewColumnSortMode.NotSortable;
-            Surname.Width = 158;
+            Surname.Width = 127;
             // 
             // Branch
             // 
@@ -91,7 +92,7 @@
             Branch.MinimumWidth = 6;
             Branch.Name = "Branch";
             Branch.SortMode = DataGridViewColumnSortMode.NotSortable;
-            Branch.Width = 128;
+            Branch.Width = 103;
             // 
             // groupBox2
             // 
@@ -110,7 +111,7 @@
             // 
             txt_aramaYap.Location = new Point(6, 163);
             txt_aramaYap.Name = "txt_aramaYap";
-            txt_aramaYap.Size = new Size(499, 38);
+            txt_aramaYap.Size = new Size(499, 32);
             txt_aramaYap.TabIndex = 14;
             // 
             // radioButton2
@@ -118,7 +119,7 @@
             radioButton2.AutoSize = true;
             radioButton2.Location = new Point(6, 107);
             radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(158, 35);
+            radioButton2.Size = new Size(133, 29);
             radioButton2.TabIndex = 1;
             radioButton2.TabStop = true;
             radioButton2.Text = "Branşa Göre";
@@ -129,7 +130,7 @@
             radioButton1.AutoSize = true;
             radioButton1.Location = new Point(6, 51);
             radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(138, 35);
+            radioButton1.Size = new Size(115, 29);
             radioButton1.TabIndex = 0;
             radioButton1.TabStop = true;
             radioButton1.Text = "İsme Göre";
@@ -141,7 +142,7 @@
             label1.Font = new Font("Segoe UI", 14F);
             label1.Location = new Point(12, 277);
             label1.Name = "label1";
-            label1.Size = new Size(158, 32);
+            label1.Size = new Size(125, 25);
             label1.TabIndex = 19;
             label1.Text = "Doktor Listesi";
             // 
@@ -158,7 +159,7 @@
             // 
             // DoctorListForm
             // 
-            AutoScaleDimensions = new SizeF(18F, 45F);
+            AutoScaleDimensions = new SizeF(15F, 37F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonShadow;
             ClientSize = new Size(929, 651);
