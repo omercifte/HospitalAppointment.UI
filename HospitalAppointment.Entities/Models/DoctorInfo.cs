@@ -9,7 +9,6 @@ namespace HospitalAppointment.Entities.Models
 {
     public class DoctorInfo:Entity
     {
-
         public Guid DoctorId { get; set; }
         public DateTime AvailableDate { get; set; }
     }

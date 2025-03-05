@@ -16,6 +16,9 @@ namespace HospitalAppointment.Entities.Models
         public string? TcNo { get; set; }
        // public ICollection<Doctors>? Doctors { get; set; }
         public ICollection<Appointment>? Appointments { get; set; }
+        public List<DoctorPatient>? DoctorPatients { get; set; }
+        public List<PatientMedicine>? PatientMedicines { get; set; }
+
         public override string ToString()
         {
             return $"{TcNo} - {FullName} ";

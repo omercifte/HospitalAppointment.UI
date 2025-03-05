@@ -18,6 +18,7 @@ namespace HospitalAppointment.Entities.Models
         //public ICollection<Patients>? Patients { get; set; }
   
         public ICollection<Appointment>? Appointments { get; set; }
+        public List<DoctorPatient>? DoctorPatients { get; set; }
 
         public override string ToString()
         {

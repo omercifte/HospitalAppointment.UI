@@ -26,5 +26,18 @@ namespace HospitalAppointment.DataAccess.Context
             //optionsBuilder.UseSqlServer(@"Data Source=localhost;Initial Catalog=HospitalProje;User ID=sa;Password=12345;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;");
 
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+
+            modelBuilder.Entity<PatientMedicine>().Ignore(x => x.Id);
+            modelBuilder.Entity<PatientMedicine>().HasKey(x =>
+            new { x.PatientId, x.MedicineId }
+            );
+
+            modelBuilder.Entity<DoctorPatient>().Ignore(x => x.Id);
+            modelBuilder.Entity<DoctorPatient>().HasKey(x =>
+            new { x.PatientId, x.DoctorId }
+            );
+        }
     }
 }

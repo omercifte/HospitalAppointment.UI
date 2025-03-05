@@ -65,10 +65,11 @@ namespace HospitalAppointment.UI.Forms
 
         private void GetAllPatients()
         {
-
             var patients = _pService.GetAll();
+
             dgHastalar.DataSource = patients;
         }
+
 
         private void btnKaydet_Click(object sender, EventArgs e)
         {
@@ -125,6 +126,9 @@ namespace HospitalAppointment.UI.Forms
             //    {
             //        MessageBox.Show(ex.Message);
             //    }
+
+
+
         }
 
         private void dtDate_ValueChanged(object sender, EventArgs e)
@@ -185,9 +189,7 @@ namespace HospitalAppointment.UI.Forms
         {
             if (cmbMedicine.SelectedItem != null)
             {
-                // Seçilen ilacı alıyoruz
                 var selectedMedicine = (Medicine)cmbMedicine.SelectedItem;
-                // Burada seçilen ilaçla ilgili işlemleri yapabilirsiniz
             }
         }
     }
