@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HospitalAppointment.DataAccess.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250303065338_Fm")]
-    partial class Fm
+    [Migration("20250305091246_FirstMig")]
+    partial class FirstMig
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -98,6 +98,26 @@ namespace HospitalAppointment.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Doctorinfo");
+                });
+
+            modelBuilder.Entity("HospitalAppointment.Entities.Models.DoctorPrice", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Branch")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("DoctorPrice");
                 });
 
             modelBuilder.Entity("HospitalAppointment.Entities.Models.Doctors", b =>

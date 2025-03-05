@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace HospitalAppointment.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class Fm : Migration
+    public partial class FirstMig : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -23,6 +23,20 @@ namespace HospitalAppointment.DataAccess.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Doctorinfo", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "DoctorPrice",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Price = table.Column<double>(type: "float", nullable: false),
+                    Branch = table.Column<int>(type: "int", nullable: false),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DoctorPrice", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -145,6 +159,9 @@ namespace HospitalAppointment.DataAccess.Migrations
 
             migrationBuilder.DropTable(
                 name: "Doctorinfo");
+
+            migrationBuilder.DropTable(
+                name: "DoctorPrice");
 
             migrationBuilder.DropTable(
                 name: "Medicines");

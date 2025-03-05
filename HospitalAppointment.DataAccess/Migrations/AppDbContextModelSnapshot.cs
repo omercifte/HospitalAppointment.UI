@@ -97,6 +97,26 @@ namespace HospitalAppointment.DataAccess.Migrations
                     b.ToTable("Doctorinfo");
                 });
 
+            modelBuilder.Entity("HospitalAppointment.Entities.Models.DoctorPrice", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Branch")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("DoctorPrice");
+                });
+
             modelBuilder.Entity("HospitalAppointment.Entities.Models.Doctors", b =>
                 {
                     b.Property<Guid>("Id")

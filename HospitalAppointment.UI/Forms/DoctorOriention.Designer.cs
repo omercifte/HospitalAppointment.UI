@@ -79,9 +79,11 @@
             // 
             // dgHastalar
             // 
+            dgHastalar.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgHastalar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgHastalar.Location = new Point(162, 44);
             dgHastalar.Name = "dgHastalar";
+            dgHastalar.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgHastalar.Size = new Size(342, 131);
             dgHastalar.TabIndex = 4;
             // 

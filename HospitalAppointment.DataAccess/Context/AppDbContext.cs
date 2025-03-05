@@ -16,6 +16,7 @@ namespace HospitalAppointment.DataAccess.Context
         public DbSet<Appointment> Appointments { get; set; }
         public DbSet<Medicine> Medicines { get; set; }
         public DbSet<DoctorAvailability> DoctorAvailabilities { get; set; }
+        public DbSet<DoctorPrice> DoctorPrice { get; set; }
 
 
 
