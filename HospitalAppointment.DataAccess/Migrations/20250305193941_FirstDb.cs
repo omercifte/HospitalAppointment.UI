@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace HospitalAppointment.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class FirstMig : Migration
+    public partial class FirstDb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -132,6 +132,56 @@ namespace HospitalAppointment.DataAccess.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "DoctorPatient",
+                columns: table => new
+                {
+                    DoctorId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    PatientId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DoctorPatient", x => new { x.PatientId, x.DoctorId });
+                    table.ForeignKey(
+                        name: "FK_DoctorPatient_Doctors_DoctorId",
+                        column: x => x.DoctorId,
+                        principalTable: "Doctors",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_DoctorPatient_Patients_PatientId",
+                        column: x => x.PatientId,
+                        principalTable: "Patients",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PatientMedicine",
+                columns: table => new
+                {
+                    PatientId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    MedicineId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PatientMedicine", x => new { x.PatientId, x.MedicineId });
+                    table.ForeignKey(
+                        name: "FK_PatientMedicine_Medicines_MedicineId",
+                        column: x => x.MedicineId,
+                        principalTable: "Medicines",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_PatientMedicine_Patients_PatientId",
+                        column: x => x.PatientId,
+                        principalTable: "Patients",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Appointments_DoctorId",
                 table: "Appointments",
@@ -146,6 +196,16 @@ namespace HospitalAppointment.DataAccess.Migrations
                 name: "IX_DoctorAvailabilities_DoctorId",
                 table: "DoctorAvailabilities",
                 column: "DoctorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DoctorPatient_DoctorId",
+                table: "DoctorPatient",
+                column: "DoctorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PatientMedicine_MedicineId",
+                table: "PatientMedicine",
+                column: "MedicineId");
         }
 
         /// <inheritdoc />
@@ -161,16 +221,22 @@ namespace HospitalAppointment.DataAccess.Migrations
                 name: "Doctorinfo");
 
             migrationBuilder.DropTable(
+                name: "DoctorPatient");
+
+            migrationBuilder.DropTable(
                 name: "DoctorPrice");
+
+            migrationBuilder.DropTable(
+                name: "PatientMedicine");
+
+            migrationBuilder.DropTable(
+                name: "Doctors");
 
             migrationBuilder.DropTable(
                 name: "Medicines");
 
             migrationBuilder.DropTable(
                 name: "Patients");
-
-            migrationBuilder.DropTable(
-                name: "Doctors");
         }
     }
 }

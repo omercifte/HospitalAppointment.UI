@@ -61,5 +61,10 @@ namespace HospitalAppointment.DataAccess.Repositories
             _dbContext.Entry(entity).State = EntityState.Modified;
             _dbContext.SaveChanges();
         }
+
+        public IEnumerable<T> Where(Expression<Func<T, bool>> predicate)
+        {
+            return _dbSet.Where(predicate).ToList();
+        }
     }
 }

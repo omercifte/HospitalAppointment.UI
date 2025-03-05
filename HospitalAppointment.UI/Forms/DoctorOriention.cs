@@ -57,10 +57,10 @@ namespace HospitalAppointment.UI.Forms
         }
         private void GetAllMedicines()
         {
-            var medicines = _mService.GetAll();  // Tüm ilaçları alıyoruz
-            cmbMedicine.DataSource = medicines.ToList();  // Combobox'a set ediyoruz
-            cmbMedicine.DisplayMember = "Name";  // Combobox'ta gösterilecek alan
-            cmbMedicine.ValueMember = "Id";     // Combobox'ın değeri
+            var medicines = _mService.GetAll();  
+            cmbMedicine.DataSource = medicines.ToList(); 
+            cmbMedicine.DisplayMember = "Name";  
+            cmbMedicine.ValueMember = "Id";    
         }
 
         private void GetAllPatients()

@@ -41,10 +41,12 @@
             hastaİstatistikleriToolStripMenuItem = new ToolStripMenuItem();
             randevuİstatistikleriToolStripMenuItem = new ToolStripMenuItem();
             yönlendirmeToolStripMenuItem = new ToolStripMenuItem();
+            ilaçVeMedikalÜrünlerToolStripMenuItem = new ToolStripMenuItem();
+            muhasebeToolStripMenuItem = new ToolStripMenuItem();
             sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
-            ilaçVeMedikalÜrünlerToolStripMenuItem = new ToolStripMenuItem();
+            branşFiyatToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)axWindowsMediaPlayer1).BeginInit();
             SuspendLayout();
@@ -76,7 +78,7 @@
             menuStrip1.BackColor = Color.FromArgb(192, 192, 255);
             menuStrip1.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 162);
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { hastaKayıtToolStripMenuItem, doktorYönetimiToolStripMenuItem, raporlarVeİstatistiklerToolStripMenuItem, yönlendirmeToolStripMenuItem, ilaçVeMedikalÜrünlerToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { hastaKayıtToolStripMenuItem, doktorYönetimiToolStripMenuItem, raporlarVeİstatistiklerToolStripMenuItem, yönlendirmeToolStripMenuItem, ilaçVeMedikalÜrünlerToolStripMenuItem, muhasebeToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(5, 2, 0, 2);
@@ -140,6 +142,21 @@
             yönlendirmeToolStripMenuItem.Text = "Yönlendirme";
             yönlendirmeToolStripMenuItem.Click += yönlendirmeToolStripMenuItem_Click;
             // 
+            // ilaçVeMedikalÜrünlerToolStripMenuItem
+            // 
+            ilaçVeMedikalÜrünlerToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { branşFiyatToolStripMenuItem });
+            ilaçVeMedikalÜrünlerToolStripMenuItem.Name = "ilaçVeMedikalÜrünlerToolStripMenuItem";
+            ilaçVeMedikalÜrünlerToolStripMenuItem.Size = new Size(172, 24);
+            ilaçVeMedikalÜrünlerToolStripMenuItem.Text = "İlaç ve Medikal Ürünler";
+            ilaçVeMedikalÜrünlerToolStripMenuItem.Click += ilaçVeMedikalÜrünlerToolStripMenuItem_Click;
+            // 
+            // muhasebeToolStripMenuItem
+            // 
+            muhasebeToolStripMenuItem.Name = "muhasebeToolStripMenuItem";
+            muhasebeToolStripMenuItem.Size = new Size(89, 24);
+            muhasebeToolStripMenuItem.Text = "Muhasebe";
+            muhasebeToolStripMenuItem.Click += muhasebeToolStripMenuItem_Click;
+            // 
             // sqlCommand1
             // 
             sqlCommand1.CommandTimeout = 30;
@@ -155,12 +172,12 @@
             axWindowsMediaPlayer1.TabIndex = 5;
             axWindowsMediaPlayer1.Enter += axWindowsMediaPlayer1_Enter;
             // 
-            // ilaçVeMedikalÜrünlerToolStripMenuItem
+            // branşFiyatToolStripMenuItem
             // 
-            ilaçVeMedikalÜrünlerToolStripMenuItem.Name = "ilaçVeMedikalÜrünlerToolStripMenuItem";
-            ilaçVeMedikalÜrünlerToolStripMenuItem.Size = new Size(172, 24);
-            ilaçVeMedikalÜrünlerToolStripMenuItem.Text = "İlaç ve Medikal Ürünler";
-            ilaçVeMedikalÜrünlerToolStripMenuItem.Click += ilaçVeMedikalÜrünlerToolStripMenuItem_Click;
+            branşFiyatToolStripMenuItem.Name = "branşFiyatToolStripMenuItem";
+            branşFiyatToolStripMenuItem.Size = new Size(180, 24);
+            branşFiyatToolStripMenuItem.Text = "branş fiyat";
+            branşFiyatToolStripMenuItem.Click += branşFiyatToolStripMenuItem_Click;
             // 
             // MainForm
             // 
@@ -200,5 +217,7 @@
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
         private ToolStripMenuItem yönlendirmeToolStripMenuItem;
         private ToolStripMenuItem ilaçVeMedikalÜrünlerToolStripMenuItem;
+        private ToolStripMenuItem muhasebeToolStripMenuItem;
+        private ToolStripMenuItem branşFiyatToolStripMenuItem;
     }
 }

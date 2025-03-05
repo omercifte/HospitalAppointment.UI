@@ -97,6 +97,24 @@ namespace HospitalAppointment.DataAccess.Migrations
                     b.ToTable("Doctorinfo");
                 });
 
+            modelBuilder.Entity("HospitalAppointment.Entities.Models.DoctorPatient", b =>
+                {
+                    b.Property<Guid>("PatientId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("DoctorId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.HasKey("PatientId", "DoctorId");
+
+                    b.HasIndex("DoctorId");
+
+                    b.ToTable("DoctorPatient");
+                });
+
             modelBuilder.Entity("HospitalAppointment.Entities.Models.DoctorPrice", b =>
                 {
                     b.Property<Guid>("Id")
@@ -160,6 +178,24 @@ namespace HospitalAppointment.DataAccess.Migrations
                     b.ToTable("Medicines");
                 });
 
+            modelBuilder.Entity("HospitalAppointment.Entities.Models.PatientMedicine", b =>
+                {
+                    b.Property<Guid>("PatientId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("MedicineId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.HasKey("PatientId", "MedicineId");
+
+                    b.HasIndex("MedicineId");
+
+                    b.ToTable("PatientMedicine");
+                });
+
             modelBuilder.Entity("HospitalAppointment.Entities.Models.Patients", b =>
                 {
                     b.Property<Guid>("Id")
@@ -213,14 +249,63 @@ namespace HospitalAppointment.DataAccess.Migrations
                     b.Navigation("Doctor");
                 });
 
+            modelBuilder.Entity("HospitalAppointment.Entities.Models.DoctorPatient", b =>
+                {
+                    b.HasOne("HospitalAppointment.Entities.Models.Doctors", "Doctor")
+                        .WithMany("DoctorPatients")
+                        .HasForeignKey("DoctorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("HospitalAppointment.Entities.Models.Patients", "Patient")
+                        .WithMany("DoctorPatients")
+                        .HasForeignKey("PatientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Doctor");
+
+                    b.Navigation("Patient");
+                });
+
+            modelBuilder.Entity("HospitalAppointment.Entities.Models.PatientMedicine", b =>
+                {
+                    b.HasOne("HospitalAppointment.Entities.Models.Medicine", "Medicine")
+                        .WithMany("PatientMedicines")
+                        .HasForeignKey("MedicineId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("HospitalAppointment.Entities.Models.Patients", "Patient")
+                        .WithMany("PatientMedicines")
+                        .HasForeignKey("PatientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Medicine");
+
+                    b.Navigation("Patient");
+                });
+
             modelBuilder.Entity("HospitalAppointment.Entities.Models.Doctors", b =>
                 {
                     b.Navigation("Appointments");
+
+                    b.Navigation("DoctorPatients");
+                });
+
+            modelBuilder.Entity("HospitalAppointment.Entities.Models.Medicine", b =>
+                {
+                    b.Navigation("PatientMedicines");
                 });
 
             modelBuilder.Entity("HospitalAppointment.Entities.Models.Patients", b =>
                 {
                     b.Navigation("Appointments");
+
+                    b.Navigation("DoctorPatients");
+
+                    b.Navigation("PatientMedicines");
                 });
 #pragma warning restore 612, 618
         }

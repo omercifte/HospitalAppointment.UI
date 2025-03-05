@@ -38,6 +38,11 @@ namespace HospitalAppointment.DataAccess.Context
             modelBuilder.Entity<DoctorPatient>().HasKey(x =>
             new { x.PatientId, x.DoctorId }
             );
+
+           // modelBuilder.Entity<DoctorPrice>().Ignore(x => x.Id);
+            modelBuilder.Entity<DoctorPrice>().HasKey(x =>
+            new { x.Branch }
+            );
         }
     }
 }

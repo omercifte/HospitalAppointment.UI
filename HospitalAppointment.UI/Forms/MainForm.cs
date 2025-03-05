@@ -1,4 +1,5 @@
-﻿using HospitalAppointment.UI.Tools;
+﻿using HospitalAppointment.Entities.Models;
+using HospitalAppointment.UI.Tools;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -140,6 +141,20 @@ namespace HospitalAppointment.UI.Forms
             MedicineForm medicineForm = new MedicineForm();
             medicineForm.MdiParent = this;
             GetForm(medicineForm);
+        }
+
+        private void muhasebeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AccountForm accountForm = new AccountForm();
+            accountForm.MdiParent = this;
+            GetForm(accountForm);
+        }
+
+        private void branşFiyatToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BranchPrice doctorpriceForm = new BranchPrice();
+            doctorpriceForm.MdiParent = this;
+            GetForm(doctorpriceForm);
         }
     }
 }

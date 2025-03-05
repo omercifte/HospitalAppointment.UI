@@ -41,6 +41,8 @@ namespace HospitalAppointment.UI.Forms
         private void BranchPrice_Load(object sender, EventArgs e)
         {
             GetAllBranch();
+            GetAllPrice();
+
         }
 
         private void GetAllBranch()
@@ -70,7 +72,8 @@ namespace HospitalAppointment.UI.Forms
             {
                 MessageBox.Show(ex.Message);
             }
-           GetAllPrice();
+            lstList.Items.Clear();
+            GetAllPrice();
                
         }
 
