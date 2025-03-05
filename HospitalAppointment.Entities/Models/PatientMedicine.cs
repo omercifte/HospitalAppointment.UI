@@ -9,5 +9,6 @@ namespace HospitalAppointment.Entities.Models
 
         public Guid MedicineId { get; set; }
         public Medicine? Medicine { get; set; }
+        public DateTime PrescriptionDate { get; } = DateTime.Now;
     }
 }
