@@ -73,63 +73,72 @@ namespace HospitalAppointment.UI.Forms
 
         private void btnKaydet_Click(object sender, EventArgs e)
         {
-            //    try
-            //    {
-            //        if (cmbDoctor.SelectedItem == null || dtDate?.Value == null || chkList.CheckedItems.Count == 0)
-            //        {
-            //            MessageBox.Show("Lütfen tüm alanları doldurunuz.");
-            //            return;
-            //        }
+            try
+            {
+                if (cmbDoctor.SelectedItem == null || dtDate?.Value == null || chkList.CheckedItems.Count == 0)
+                {
+                    MessageBox.Show("Lütfen tüm alanları doldurunuz.");
+                    return;
+                }
 
-            //        DateTime selectedDate = dtDate.Value.Date;
-            //        Doctors selectedDoctor = (Doctors)cmbDoctor.SelectedItem;
-            //        Guid doktorId = selectedDoctor.Id;
+                if (dgHastalar.CurrentRow == null)
+                {
+                    MessageBox.Show("Lütfen bir hasta seçiniz.");
+                    return;
+                }
 
-            //        using (var context = new AppDbContext())
-            //        {
-            //            foreach (var item in chkList.CheckedItems)
-            //            {
-            //                string hours = item.ToString();
-            //                TimeSpan time = TimeSpan.Parse(hours);
+                Guid patientId;
+                if (!Guid.TryParse(dgHastalar.CurrentRow.Cells["Id"].Value?.ToString(), out patientId))
+                {
+                    MessageBox.Show("Seçilen hastanın ID'si geçerli değil.");
+                    return;
+                }
 
-            //                var availability = context.DoctorAvailabilities
-            //                                          .FirstOrDefault(a => a.DoctorId == doktorId && a.Date == selectedDate && a.Time == time);
+                DateTime selectedDate = dtDate.Value.Date;
+                Doctors selectedDoctor = (Doctors)cmbDoctor.SelectedItem;
+                Guid doktorId = selectedDoctor.Id;
 
-            //                if (availability != null && availability.IsActive)
-            //                {
-            //                    Appointment appointment = new()
-            //                    {
-            //                        PatientId = .Id,
-            //                        DoctorId = doktorId,
-            //                        AppointmentDate = selectedDate,
-            //                        Time = time,
-            //                        IsActive = true
-            //                    };
-            //                    _aService.Create(appointment);
+                using (var context = new AppDbContext())
+                {
+                    foreach (var item in chkList.CheckedItems)
+                    {
+                        string hours = item.ToString();
+                        TimeSpan time = TimeSpan.Parse(hours);
 
-            //                    availability.IsActive = false;
-            //                    context.DoctorAvailabilities.Update(availability);
-            //                    context.SaveChanges();
-            //                }
-            //                else
-            //                {
-            //                    MessageBox.Show("Doktor seçilen saatte müsait değil.");
-            //                }
-            //            }
-            //            context.SaveChanges();
-            //        }
+                        var availability = context.DoctorAvailabilities
+                                                  .FirstOrDefault(a => a.DoctorId == doktorId && a.Date == selectedDate && a.Time == time);
 
+                        if (availability != null && availability.IsActive)
+                        {
+                            Appointment appointment = new()
+                            {
+                                PatientId = patientId,
+                                DoctorId = doktorId,
+                                AppointmentDate = selectedDate,
+                                Time = time,
+                                IsActive = true
+                            };
+                            _aService.Create(appointment);
 
+                            availability.IsActive = false;
+                            context.DoctorAvailabilities.Update(availability);
+                            context.SaveChanges();
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Doktor seçilen saatte ({time}) müsait değil.");
+                        }
+                    }
+                }
 
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        MessageBox.Show(ex.Message);
-            //    }
-
-
-
+                MessageBox.Show("Randevu başarıyla kaydedildi.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Hata oluştu: {ex.Message}");
+            }
         }
+
 
         private void dtDate_ValueChanged(object sender, EventArgs e)
         {
