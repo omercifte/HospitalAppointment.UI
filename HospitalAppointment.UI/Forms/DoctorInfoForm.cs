@@ -119,7 +119,20 @@ namespace HospitalAppointment.UI.Forms
             }
 
             MessageBox.Show("Müsaitlikler kaydedildi!");
-            LoadAvailableTimes(); 
+            LoadAvailableTimes();
+            ClearForm();
+        }
+
+        private void ClearForm()
+        {
+            cmbDoctor.SelectedIndex = -1;
+            dtpDate.Value = DateTime.Today;
+            foreach (int index in chkList.CheckedIndices)
+            {
+                chkList.SetItemChecked(index, false);
+            }
+            chkList.Items.Clear();
+
         }
     }
 }

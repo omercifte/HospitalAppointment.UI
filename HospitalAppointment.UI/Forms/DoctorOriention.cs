@@ -98,6 +98,30 @@ namespace HospitalAppointment.UI.Forms
                 Doctors selectedDoctor = (Doctors)cmbDoctor.SelectedItem;
                 Guid doktorId = selectedDoctor.Id;
 
+                if (cmbMedicine.SelectedItem != null)
+                {
+                    selectedMedicine = (Medicine)cmbMedicine.SelectedItem;
+                }
+                var patient = _pService.GetByID(patientId);
+
+                if (patient.PatientMedicines == null)
+                {
+                    patient.PatientMedicines = new List<PatientMedicine>();
+                }
+
+                PatientMedicine patientMedicine = new PatientMedicine()
+                {
+                    PatientId = patientId,
+                    MedicineId =selectedMedicine.Id,
+                    Medicine = selectedMedicine,
+                    Patient = patient,
+                };
+                patient.PatientMedicines.Add(patientMedicine);
+
+                _pService.Update(patient);
+
+
+
                 using (var context = new AppDbContext())
                 {
                     foreach (var item in chkList.CheckedItems)
@@ -116,6 +140,7 @@ namespace HospitalAppointment.UI.Forms
                                 DoctorId = doktorId,
                                 AppointmentDate = selectedDate,
                                 Time = time,
+                                
                                 IsActive = true
                             };
                             _aService.Create(appointment);
@@ -128,10 +153,12 @@ namespace HospitalAppointment.UI.Forms
                         {
                             MessageBox.Show($"Doktor seçilen saatte ({time}) müsait değil.");
                         }
+
                     }
                 }
 
                 MessageBox.Show("Randevu başarıyla kaydedildi.");
+                ClearForm();
             }
             catch (Exception ex)
             {
@@ -139,6 +166,14 @@ namespace HospitalAppointment.UI.Forms
             }
         }
 
+        private void ClearForm()
+        {
+            cmbDoctor.SelectedIndex = -1;
+            dtDate.Value = DateTime.Today;
+            cmbMedicine.SelectedIndex = -1;
+            dgHastalar.ClearSelection();
+            chkList.ClearSelected();
+        }
 
         private void dtDate_ValueChanged(object sender, EventArgs e)
         {
@@ -193,12 +228,12 @@ namespace HospitalAppointment.UI.Forms
                 cmbDoctor.ValueMember = "Id";
             }
         }
-
+        Medicine selectedMedicine;
         private void cmbMedicine_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbMedicine.SelectedItem != null)
             {
-                var selectedMedicine = (Medicine)cmbMedicine.SelectedItem;
+                selectedMedicine = (Medicine)cmbMedicine.SelectedItem;
             }
         }
     }

@@ -39,41 +39,47 @@
             // lbl_ilacAdi
             // 
             lbl_ilacAdi.AutoSize = true;
-            lbl_ilacAdi.Location = new Point(108, 56);
+            lbl_ilacAdi.Font = new Font("Segoe UI", 19.8000011F);
+            lbl_ilacAdi.Location = new Point(21, 69);
             lbl_ilacAdi.Name = "lbl_ilacAdi";
-            lbl_ilacAdi.Size = new Size(46, 15);
+            lbl_ilacAdi.Size = new Size(129, 46);
             lbl_ilacAdi.TabIndex = 0;
             lbl_ilacAdi.Text = "İlaç Adı";
             // 
             // lbl_fiyat
             // 
             lbl_fiyat.AutoSize = true;
-            lbl_fiyat.Location = new Point(108, 113);
+            lbl_fiyat.Font = new Font("Segoe UI", 19.8000011F);
+            lbl_fiyat.Location = new Point(21, 143);
             lbl_fiyat.Name = "lbl_fiyat";
-            lbl_fiyat.Size = new Size(32, 15);
+            lbl_fiyat.Size = new Size(90, 46);
             lbl_fiyat.TabIndex = 1;
             lbl_fiyat.Text = "Fiyat";
             // 
             // txt_ilacAdi
             // 
-            txt_ilacAdi.Location = new Point(223, 56);
+            txt_ilacAdi.Font = new Font("Segoe UI", 19.8000011F);
+            txt_ilacAdi.Location = new Point(181, 69);
+            txt_ilacAdi.Margin = new Padding(3, 4, 3, 4);
             txt_ilacAdi.Name = "txt_ilacAdi";
-            txt_ilacAdi.Size = new Size(146, 23);
+            txt_ilacAdi.Size = new Size(251, 51);
             txt_ilacAdi.TabIndex = 2;
             // 
             // txt_fiyat
             // 
-            txt_fiyat.Location = new Point(223, 108);
+            txt_fiyat.Font = new Font("Segoe UI", 19.8000011F);
+            txt_fiyat.Location = new Point(181, 138);
+            txt_fiyat.Margin = new Padding(3, 4, 3, 4);
             txt_fiyat.Name = "txt_fiyat";
-            txt_fiyat.Size = new Size(146, 23);
+            txt_fiyat.Size = new Size(251, 51);
             txt_fiyat.TabIndex = 3;
             // 
             // btn_kaydet
             // 
-            btn_kaydet.Location = new Point(215, 159);
-            btn_kaydet.Margin = new Padding(3, 2, 3, 2);
+            btn_kaydet.Font = new Font("Segoe UI", 19.8000011F);
+            btn_kaydet.Location = new Point(230, 223);
             btn_kaydet.Name = "btn_kaydet";
-            btn_kaydet.Size = new Size(154, 34);
+            btn_kaydet.Size = new Size(202, 57);
             btn_kaydet.TabIndex = 4;
             btn_kaydet.Text = "Kaydet";
             btn_kaydet.UseVisualStyleBackColor = true;
@@ -81,24 +87,28 @@
             // 
             // lstList
             // 
+            lstList.Font = new Font("Segoe UI", 19.8000011F);
             lstList.FormattingEnabled = true;
-            lstList.ItemHeight = 15;
-            lstList.Location = new Point(501, 56);
+            lstList.ItemHeight = 45;
+            lstList.Location = new Point(473, 35);
+            lstList.Margin = new Padding(3, 4, 3, 4);
             lstList.Name = "lstList";
-            lstList.Size = new Size(271, 124);
+            lstList.Size = new Size(388, 364);
             lstList.TabIndex = 5;
             // 
             // MedicineForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(958, 450);
+            BackColor = SystemColors.ButtonShadow;
+            ClientSize = new Size(873, 412);
             Controls.Add(lstList);
             Controls.Add(btn_kaydet);
             Controls.Add(txt_fiyat);
             Controls.Add(txt_ilacAdi);
             Controls.Add(lbl_fiyat);
             Controls.Add(lbl_ilacAdi);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "MedicineForm";
             Text = "MedicineForm";
             Load += MedicineForm_Load;

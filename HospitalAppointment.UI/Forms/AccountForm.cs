@@ -82,13 +82,17 @@ namespace HospitalAppointment.UI.Forms
             var branchlist = _dRepo.Where(p => doctorlist.Contains(p.Id)).Select(p => p.Branch).Distinct().ToList();
             var doctorpricelist = _dpriceRepo.Where(p => branchlist.Contains(p.Branch)).ToList();
             var sum = doctorpricelist.Sum(p => p.Price);
-            txtPrice.Text = sum.ToString();
 
+            var medId = _dbContext.PatientMedicines?
+               .Where(pm => pm.PatientId == patientId)
+               .Select(pm => pm.MedicineId)
+               .ToList();
+            
+            var sumMedPrice = _mRepo.Where(m => medId.Contains(m.Id)).Sum(m => m.Price);
+            
+            var totalSum = sum + sumMedPrice;
+            txtPrice.Text = totalSum.ToString("N2");
 
-            var medicinepricelist = _pmpriceRepo.Where(p => p.PatientId == patientId)    
-                                         .ToList();
-            var toplam = medicinepricelist.Sum(p => p.Medicine.Price);
-            txtMedicinePrice.Text = toplam.ToString("C"); 
         }
     }
 }

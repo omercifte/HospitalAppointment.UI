@@ -48,7 +48,7 @@
             cmbBranch.FormattingEnabled = true;
             cmbBranch.Location = new Point(162, 208);
             cmbBranch.Name = "cmbBranch";
-            cmbBranch.Size = new Size(342, 45);
+            cmbBranch.Size = new Size(342, 53);
             cmbBranch.TabIndex = 0;
             cmbBranch.SelectedIndexChanged += cmbBranch_SelectedIndexChanged;
             // 
@@ -56,7 +56,7 @@
             // 
             dtDate.Location = new Point(162, 286);
             dtDate.Name = "dtDate";
-            dtDate.Size = new Size(342, 43);
+            dtDate.Size = new Size(342, 52);
             dtDate.TabIndex = 1;
             dtDate.ValueChanged += dtDate_ValueChanged;
             // 
@@ -65,7 +65,7 @@
             cmbDoctor.FormattingEnabled = true;
             cmbDoctor.Location = new Point(746, 208);
             cmbDoctor.Name = "cmbDoctor";
-            cmbDoctor.Size = new Size(341, 45);
+            cmbDoctor.Size = new Size(341, 53);
             cmbDoctor.TabIndex = 2;
             cmbDoctor.SelectedIndexChanged += cmbDoctor_SelectedIndexChanged;
             // 
@@ -74,7 +74,7 @@
             chkList.FormattingEnabled = true;
             chkList.Location = new Point(162, 357);
             chkList.Name = "chkList";
-            chkList.Size = new Size(342, 80);
+            chkList.Size = new Size(342, 51);
             chkList.TabIndex = 3;
             // 
             // dgHastalar
@@ -83,6 +83,7 @@
             dgHastalar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgHastalar.Location = new Point(162, 44);
             dgHastalar.Name = "dgHastalar";
+            dgHastalar.RowHeadersWidth = 51;
             dgHastalar.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgHastalar.Size = new Size(342, 131);
             dgHastalar.TabIndex = 4;
@@ -92,7 +93,7 @@
             cmbMedicine.FormattingEnabled = true;
             cmbMedicine.Location = new Point(746, 284);
             cmbMedicine.Name = "cmbMedicine";
-            cmbMedicine.Size = new Size(341, 45);
+            cmbMedicine.Size = new Size(341, 53);
             cmbMedicine.TabIndex = 5;
             cmbMedicine.SelectedIndexChanged += cmbMedicine_SelectedIndexChanged;
             // 
@@ -111,7 +112,7 @@
             label1.AutoSize = true;
             label1.Location = new Point(6, 77);
             label1.Name = "label1";
-            label1.Size = new Size(114, 37);
+            label1.Size = new Size(141, 46);
             label1.TabIndex = 7;
             label1.Text = "Hastalar";
             // 
@@ -120,7 +121,7 @@
             label2.AutoSize = true;
             label2.Location = new Point(6, 216);
             label2.Name = "label2";
-            label2.Size = new Size(93, 37);
+            label2.Size = new Size(115, 46);
             label2.TabIndex = 8;
             label2.Text = "Bölüm";
             // 
@@ -129,7 +130,7 @@
             label3.AutoSize = true;
             label3.Location = new Point(6, 292);
             label3.Name = "label3";
-            label3.Size = new Size(73, 37);
+            label3.Size = new Size(90, 46);
             label3.TabIndex = 9;
             label3.Text = "Tarih";
             // 
@@ -138,7 +139,7 @@
             label5.AutoSize = true;
             label5.Location = new Point(607, 216);
             label5.Name = "label5";
-            label5.Size = new Size(99, 37);
+            label5.Size = new Size(125, 46);
             label5.TabIndex = 11;
             label5.Text = "Doktor";
             // 
@@ -147,14 +148,15 @@
             label6.AutoSize = true;
             label6.Location = new Point(607, 292);
             label6.Name = "label6";
-            label6.Size = new Size(57, 37);
+            label6.Size = new Size(70, 46);
             label6.TabIndex = 12;
             label6.Text = "İlaç";
             // 
             // DoctorOriention
             // 
-            AutoScaleDimensions = new SizeF(15F, 37F);
+            AutoScaleDimensions = new SizeF(18F, 45F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ButtonShadow;
             ClientSize = new Size(1155, 582);
             Controls.Add(label6);
             Controls.Add(label5);

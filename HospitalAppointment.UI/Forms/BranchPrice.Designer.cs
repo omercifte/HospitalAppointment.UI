@@ -39,30 +39,30 @@
             // cmbBransh
             // 
             cmbBransh.FormattingEnabled = true;
-            cmbBransh.Location = new Point(141, 95);
+            cmbBransh.Location = new Point(156, 100);
             cmbBransh.Name = "cmbBransh";
-            cmbBransh.Size = new Size(307, 45);
+            cmbBransh.Size = new Size(307, 53);
             cmbBransh.TabIndex = 0;
             // 
             // txtPrice
             // 
-            txtPrice.Location = new Point(141, 191);
+            txtPrice.Location = new Point(156, 191);
             txtPrice.Name = "txtPrice";
-            txtPrice.Size = new Size(307, 43);
+            txtPrice.Size = new Size(307, 52);
             txtPrice.TabIndex = 1;
             // 
             // lstList
             // 
             lstList.FormattingEnabled = true;
-            lstList.ItemHeight = 37;
-            lstList.Location = new Point(569, 95);
+            lstList.ItemHeight = 45;
+            lstList.Location = new Point(523, 24);
             lstList.Name = "lstList";
-            lstList.Size = new Size(332, 300);
+            lstList.Size = new Size(389, 409);
             lstList.TabIndex = 2;
             // 
             // btnKaydet
             // 
-            btnKaydet.Location = new Point(287, 292);
+            btnKaydet.Location = new Point(283, 289);
             btnKaydet.Name = "btnKaydet";
             btnKaydet.Size = new Size(161, 80);
             btnKaydet.TabIndex = 3;
@@ -75,7 +75,7 @@
             label1.AutoSize = true;
             label1.Location = new Point(12, 103);
             label1.Name = "label1";
-            label1.Size = new Size(111, 37);
+            label1.Size = new Size(138, 46);
             label1.TabIndex = 4;
             label1.Text = "Branşlar";
             // 
@@ -84,15 +84,16 @@
             label2.AutoSize = true;
             label2.Location = new Point(12, 197);
             label2.Name = "label2";
-            label2.Size = new Size(80, 37);
+            label2.Size = new Size(101, 46);
             label2.TabIndex = 5;
             label2.Text = "Ücret";
             // 
             // BranchPrice
             // 
-            AutoScaleDimensions = new SizeF(15F, 37F);
+            AutoScaleDimensions = new SizeF(18F, 45F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(955, 567);
+            BackColor = SystemColors.ButtonShadow;
+            ClientSize = new Size(955, 459);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(btnKaydet);
