@@ -49,10 +49,13 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(12, 90);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(724, 214);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellClick += dataGridView1_CellClick;
@@ -62,7 +65,7 @@
             // 
             textBox1.Location = new Point(168, 22);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(326, 43);
+            textBox1.Size = new Size(326, 52);
             textBox1.TabIndex = 1;
             // 
             // label1
@@ -70,7 +73,7 @@
             label1.AutoSize = true;
             label1.Location = new Point(21, 22);
             label1.Name = "label1";
-            label1.Size = new Size(90, 37);
+            label1.Size = new Size(109, 46);
             label1.TabIndex = 2;
             label1.Text = "label1";
             // 
@@ -95,7 +98,7 @@
             textBox3.Location = new Point(175, 108);
             textBox3.Name = "textBox3";
             textBox3.ReadOnly = true;
-            textBox3.Size = new Size(226, 43);
+            textBox3.Size = new Size(226, 52);
             textBox3.TabIndex = 8;
             // 
             // textBox2
@@ -103,7 +106,7 @@
             textBox2.Location = new Point(175, 45);
             textBox2.Name = "textBox2";
             textBox2.ReadOnly = true;
-            textBox2.Size = new Size(226, 43);
+            textBox2.Size = new Size(226, 52);
             textBox2.TabIndex = 5;
             // 
             // label7
@@ -111,7 +114,7 @@
             label7.AutoSize = true;
             label7.Location = new Point(6, 175);
             label7.Name = "label7";
-            label7.Size = new Size(211, 37);
+            label7.Size = new Size(265, 46);
             label7.TabIndex = 7;
             label7.Text = "Sigorta Durumu:";
             // 
@@ -120,7 +123,7 @@
             checkBox2.AutoSize = true;
             checkBox2.Location = new Point(151, 224);
             checkBox2.Name = "checkBox2";
-            checkBox2.Size = new Size(85, 41);
+            checkBox2.Size = new Size(103, 50);
             checkBox2.TabIndex = 3;
             checkBox2.Text = "SGK";
             checkBox2.UseVisualStyleBackColor = true;
@@ -130,7 +133,7 @@
             checkBox1.AutoSize = true;
             checkBox1.Location = new Point(6, 224);
             checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(89, 41);
+            checkBox1.Size = new Size(109, 50);
             checkBox1.TabIndex = 2;
             checkBox1.Text = "Özel";
             checkBox1.UseVisualStyleBackColor = true;
@@ -140,7 +143,7 @@
             label3.AutoSize = true;
             label3.Location = new Point(6, 111);
             label3.Name = "label3";
-            label3.Size = new Size(96, 37);
+            label3.Size = new Size(118, 46);
             label3.TabIndex = 1;
             label3.Text = "TC No:";
             // 
@@ -149,7 +152,7 @@
             label2.AutoSize = true;
             label2.Location = new Point(0, 51);
             label2.Name = "label2";
-            label2.Size = new Size(136, 37);
+            label2.Size = new Size(169, 46);
             label2.TabIndex = 0;
             label2.Text = "Ad Soyad:";
             // 
@@ -158,7 +161,7 @@
             txtPrice.Location = new Point(928, 394);
             txtPrice.Name = "txtPrice";
             txtPrice.ReadOnly = true;
-            txtPrice.Size = new Size(226, 43);
+            txtPrice.Size = new Size(226, 52);
             txtPrice.TabIndex = 9;
             // 
             // label5
@@ -166,7 +169,7 @@
             label5.AutoSize = true;
             label5.Location = new Point(656, 400);
             label5.Name = "label5";
-            label5.Size = new Size(209, 37);
+            label5.Size = new Size(266, 46);
             label5.TabIndex = 10;
             label5.Text = "Ödenecek Tutar:";
             // 
@@ -182,16 +185,17 @@
             // lstList
             // 
             lstList.FormattingEnabled = true;
-            lstList.ItemHeight = 37;
+            lstList.ItemHeight = 45;
             lstList.Location = new Point(49, 350);
             lstList.Name = "lstList";
-            lstList.Size = new Size(337, 300);
+            lstList.Size = new Size(337, 274);
             lstList.TabIndex = 12;
             // 
             // AccountForm
             // 
-            AutoScaleDimensions = new SizeF(15F, 37F);
+            AutoScaleDimensions = new SizeF(18F, 45F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ButtonShadow;
             ClientSize = new Size(1218, 674);
             Controls.Add(lstList);
             Controls.Add(button1);

@@ -18,12 +18,15 @@ namespace HospitalAppointment.DataAccess.Context
         public DbSet<DoctorAvailability> DoctorAvailabilities { get; set; }
         public DbSet<DoctorPrice> DoctorPrice { get; set; }
 
+        public DbSet<PatientMedicine>? PatientMedicines { get; set; }
+        public DbSet<DoctorPatient>? DoctorPatients { get; set; }
+
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=HospitalProje;Integrated Security=True;Trust Server Certificate=True;");
-            //optionsBuilder.UseSqlServer(@"Data Source=localhost;Initial Catalog=HospitalProje;User ID=sa;Password=12345;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;");
+            //optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=HospitalProje;Integrated Security=True;Trust Server Certificate=True;");
+            optionsBuilder.UseSqlServer(@"Data Source=localhost;Initial Catalog=HospitalProje;User ID=sa;Password=12345;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;");
 
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -138,9 +138,7 @@ namespace HospitalAppointment.UI.Forms
 
         private void ilaçVeMedikalÜrünlerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MedicineForm medicineForm = new MedicineForm();
-            medicineForm.MdiParent = this;
-            GetForm(medicineForm);
+
         }
 
         private void muhasebeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -155,6 +153,13 @@ namespace HospitalAppointment.UI.Forms
             BranchPrice doctorpriceForm = new BranchPrice();
             doctorpriceForm.MdiParent = this;
             GetForm(doctorpriceForm);
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            MedicineForm medicineForm = new MedicineForm();
+            medicineForm.MdiParent = this;
+            GetForm(medicineForm);
         }
     }
 }

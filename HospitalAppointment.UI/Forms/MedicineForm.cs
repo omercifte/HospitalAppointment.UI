@@ -38,13 +38,21 @@ namespace HospitalAppointment.UI.Forms
                     Price = Convert.ToDouble(txt_fiyat.Text),
                 };
                 _medicineService.Create(medicine);
+                GetAllMedicine();
                 MessageBox.Show("Kayıt başarılı.");
+                ClearForm();
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void ClearForm()
+        {
+            txt_ilacAdi.Clear();
+            txt_fiyat.Clear();
         }
 
         private void MedicineForm_Load(object sender, EventArgs e)
@@ -54,6 +62,7 @@ namespace HospitalAppointment.UI.Forms
 
         private void GetAllMedicine()
         {
+            lstList.Items.Clear();
             _medicineService.GetAll().ToList().ForEach(x => lstList.Items.Add(x)); ;
         }
     }

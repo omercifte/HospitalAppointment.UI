@@ -112,17 +112,16 @@ namespace HospitalAppointment.DataAccess.Migrations
 
                     b.HasIndex("DoctorId");
 
-                    b.ToTable("DoctorPatient");
+                    b.ToTable("DoctorPatients");
                 });
 
             modelBuilder.Entity("HospitalAppointment.Entities.Models.DoctorPrice", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<int>("Branch")
                         .HasColumnType("int");
+
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
@@ -130,7 +129,7 @@ namespace HospitalAppointment.DataAccess.Migrations
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
-                    b.HasKey("Id");
+                    b.HasKey("Branch");
 
                     b.ToTable("DoctorPrice");
                 });
@@ -193,7 +192,7 @@ namespace HospitalAppointment.DataAccess.Migrations
 
                     b.HasIndex("MedicineId");
 
-                    b.ToTable("PatientMedicine");
+                    b.ToTable("PatientMedicines");
                 });
 
             modelBuilder.Entity("HospitalAppointment.Entities.Models.Patients", b =>

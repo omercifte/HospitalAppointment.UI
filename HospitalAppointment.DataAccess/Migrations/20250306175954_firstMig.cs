@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace HospitalAppointment.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class FirstDb : Migration
+    public partial class firstMig : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -29,14 +29,14 @@ namespace HospitalAppointment.DataAccess.Migrations
                 name: "DoctorPrice",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Price = table.Column<double>(type: "float", nullable: false),
                     Branch = table.Column<int>(type: "int", nullable: false),
+                    Price = table.Column<double>(type: "float", nullable: false),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     IsActive = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DoctorPrice", x => x.Id);
+                    table.PrimaryKey("PK_DoctorPrice", x => x.Branch);
                 });
 
             migrationBuilder.CreateTable(
@@ -133,7 +133,7 @@ namespace HospitalAppointment.DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "DoctorPatient",
+                name: "DoctorPatients",
                 columns: table => new
                 {
                     DoctorId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -142,15 +142,15 @@ namespace HospitalAppointment.DataAccess.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DoctorPatient", x => new { x.PatientId, x.DoctorId });
+                    table.PrimaryKey("PK_DoctorPatients", x => new { x.PatientId, x.DoctorId });
                     table.ForeignKey(
-                        name: "FK_DoctorPatient_Doctors_DoctorId",
+                        name: "FK_DoctorPatients_Doctors_DoctorId",
                         column: x => x.DoctorId,
                         principalTable: "Doctors",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_DoctorPatient_Patients_PatientId",
+                        name: "FK_DoctorPatients_Patients_PatientId",
                         column: x => x.PatientId,
                         principalTable: "Patients",
                         principalColumn: "Id",
@@ -158,7 +158,7 @@ namespace HospitalAppointment.DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "PatientMedicine",
+                name: "PatientMedicines",
                 columns: table => new
                 {
                     PatientId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -167,15 +167,15 @@ namespace HospitalAppointment.DataAccess.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PatientMedicine", x => new { x.PatientId, x.MedicineId });
+                    table.PrimaryKey("PK_PatientMedicines", x => new { x.PatientId, x.MedicineId });
                     table.ForeignKey(
-                        name: "FK_PatientMedicine_Medicines_MedicineId",
+                        name: "FK_PatientMedicines_Medicines_MedicineId",
                         column: x => x.MedicineId,
                         principalTable: "Medicines",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_PatientMedicine_Patients_PatientId",
+                        name: "FK_PatientMedicines_Patients_PatientId",
                         column: x => x.PatientId,
                         principalTable: "Patients",
                         principalColumn: "Id",
@@ -198,13 +198,13 @@ namespace HospitalAppointment.DataAccess.Migrations
                 column: "DoctorId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_DoctorPatient_DoctorId",
-                table: "DoctorPatient",
+                name: "IX_DoctorPatients_DoctorId",
+                table: "DoctorPatients",
                 column: "DoctorId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PatientMedicine_MedicineId",
-                table: "PatientMedicine",
+                name: "IX_PatientMedicines_MedicineId",
+                table: "PatientMedicines",
                 column: "MedicineId");
         }
 
@@ -221,13 +221,13 @@ namespace HospitalAppointment.DataAccess.Migrations
                 name: "Doctorinfo");
 
             migrationBuilder.DropTable(
-                name: "DoctorPatient");
+                name: "DoctorPatients");
 
             migrationBuilder.DropTable(
                 name: "DoctorPrice");
 
             migrationBuilder.DropTable(
-                name: "PatientMedicine");
+                name: "PatientMedicines");
 
             migrationBuilder.DropTable(
                 name: "Doctors");
