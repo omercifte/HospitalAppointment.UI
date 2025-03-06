@@ -17,6 +17,7 @@ namespace HospitalAppointment.DataAccess.Context
         public DbSet<Medicine> Medicines { get; set; }
         public DbSet<DoctorAvailability> DoctorAvailabilities { get; set; }
         public DbSet<DoctorPrice> DoctorPrice { get; set; }
+        public DbSet<PatientMedicine> PatientMedicine { get; set; }
 
 
 
@@ -43,6 +44,7 @@ namespace HospitalAppointment.DataAccess.Context
             modelBuilder.Entity<DoctorPrice>().HasKey(x =>
             new { x.Branch }
             );
+
         }
     }
 }

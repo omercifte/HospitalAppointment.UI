@@ -31,6 +31,9 @@ namespace HospitalAppointment.UI.Forms
 
         private readonly DoctorPriceRepository _dpriceRepo;
         private readonly DoctorPriceService _dpriceService;
+
+        private readonly PatientMedicineRepository _pmpriceRepo;
+        private readonly PatientMedicineService _pmpriceService;
         public AccountForm()
         {
             InitializeComponent();
@@ -50,6 +53,9 @@ namespace HospitalAppointment.UI.Forms
 
             _dpriceRepo = new DoctorPriceRepository(_dbContext);
             _dpriceService = new DoctorPriceService(_dpriceRepo);
+
+            _pmpriceRepo = new PatientMedicineRepository(_dbContext);
+            _pmpriceService = new PatientMedicineService(_pmpriceRepo);
         }
 
         private void AccountForm_Load(object sender, EventArgs e)
@@ -77,6 +83,12 @@ namespace HospitalAppointment.UI.Forms
             var doctorpricelist = _dpriceRepo.Where(p => branchlist.Contains(p.Branch)).ToList();
             var sum = doctorpricelist.Sum(p => p.Price);
             txtPrice.Text = sum.ToString();
+
+
+            var medicinepricelist = _pmpriceRepo.Where(p => p.PatientId == patientId)    
+                                         .ToList();
+            var toplam = medicinepricelist.Sum(p => p.Medicine.Price);
+            txtMedicinePrice.Text = toplam.ToString("C"); 
         }
     }
 }

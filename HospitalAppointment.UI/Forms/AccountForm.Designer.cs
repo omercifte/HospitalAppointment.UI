@@ -43,6 +43,7 @@
             label5 = new Label();
             button1 = new Button();
             lstList = new ListBox();
+            txtMedicinePrice = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -172,7 +173,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(668, 559);
+            button1.Location = new Point(921, 580);
             button1.Name = "button1";
             button1.Size = new Size(233, 59);
             button1.TabIndex = 11;
@@ -188,11 +189,20 @@
             lstList.Size = new Size(337, 300);
             lstList.TabIndex = 12;
             // 
+            // txtMedicinePrice
+            // 
+            txtMedicinePrice.Location = new Point(928, 478);
+            txtMedicinePrice.Name = "txtMedicinePrice";
+            txtMedicinePrice.ReadOnly = true;
+            txtMedicinePrice.Size = new Size(226, 43);
+            txtMedicinePrice.TabIndex = 13;
+            // 
             // AccountForm
             // 
             AutoScaleDimensions = new SizeF(15F, 37F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1218, 674);
+            Controls.Add(txtMedicinePrice);
             Controls.Add(lstList);
             Controls.Add(button1);
             Controls.Add(label5);
@@ -230,5 +240,6 @@
         private Label label5;
         private Button button1;
         private ListBox lstList;
+        private TextBox txtMedicinePrice;
     }
 }
